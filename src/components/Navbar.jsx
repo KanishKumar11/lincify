@@ -1,4 +1,5 @@
 
+"use client"
 import React from "react";
 export default function Navbar() {
   const [state, setState] = React.useState(false);
@@ -19,11 +20,13 @@ export default function Navbar() {
 
   const Brand = () => (
     <div className="flex items-center justify-between py-5 md:block">
+              <div class="absolute top-0 z-[0] h-screen w-screen bg-purple-950/10 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+
       <a href="javascript:void(0)">
         <img
-          src="https://www.farmui.com/logo.svg"
-          className="rounded-full"
-          width={50}
+          src="/logo.png"
+          className=""
+          width={120}
           height={50}
           alt="FarmUI logo"
         />
@@ -105,7 +108,7 @@ export default function Navbar() {
                     href="javascript:void(0)"
                     className="flex items-center justify-center gap-x-1 py-3 px-4 text-white font-medium transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset] rounded-full md:inline-flex "
                   >
-                    Sign in
+                    Book A Call
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"

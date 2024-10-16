@@ -8,7 +8,6 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <div className="relative">
-      <div class="absolute top-0 z-[0] h-screen w-screen bg-purple-950/10 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
       <section className="relative max-w-full mx-auto  z-1">
         <RetroGrid />
 
@@ -47,7 +46,7 @@ export default function Hero() {
                 <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950  text-xs font-medium text-gray-50 backdrop-blur-3xl">
                   <a
                     href="javascript:void(0)"
-                    className="inline-flex rounded-full text-center group items-center w-full justify-center   bg-gradient-to-tr from-zinc-300/5 via-purple-400/20 to-transparent    text-white border-input border-[1px] hover:bg-transparent/90 transition-colors sm:w-auto py-4 px-10"
+                    className="inline-flex rounded-full text-center group items-center w-full justify-center   bg-gradient-to-tr from-zinc-300/5 via-purple-400/20 to-transparent    text-white border-input border-[1px] hover:bg-transparent/90 transition-colors sm:w-auto py-4 px-10 text-lg"
                   >
                     Book a call
                   </a>
@@ -62,7 +61,7 @@ export default function Hero() {
               alt=""
             /> */}
             <div class="gradient-02 z-0 " />
-            <div className="overflow-hidden ">
+            <div className="overflow-hidden lg:-mt-80 -mt-40">
               <MacbookScroll
                 badge={
                   <Link href="#">
