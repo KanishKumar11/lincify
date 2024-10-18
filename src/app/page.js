@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { AnimatedScroll } from "@/components/sections/AnimatedScroll";
+import GlobalReach from "@/components/sections/GobalReach";
 import Hero from "@/components/sections/Hero";
 import Strategy from "@/components/sections/Strategy";
 import Testimonials from "@/components/sections/Testimonials";
@@ -9,10 +10,10 @@ import React from "react";
 export default function page() {
   return (
     <div className="bg-black">
-      <Navbar/>
+      <Navbar />
       <Hero />
       <Strategy />
-      <VelocityScroll/>
+      <GlobalReach />
       {/* <AnimatedScroll /> */}
       <Testimonials />
     </div>

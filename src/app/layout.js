@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import {Poppins} from "next/font/google"
+import { Poppins } from "next/font/google";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -14,10 +14,9 @@ const geistMono = localFont({
 });
 
 const poppins = Poppins({
-  subsets:["latin"],
-  weight:["100","200","300","400","500","600","700","800","900"
-  ]
-})
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -28,7 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${poppins.className} antialiased`}
+        className={`${geistSans.variable} ${poppins.className} antialiased overflow-x-hidden`}
       >
         <ThemeProvider
           attribute="class"

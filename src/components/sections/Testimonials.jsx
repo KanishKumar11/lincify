@@ -1,24 +1,23 @@
 import clsx from "clsx";
 import Image from "next/image";
-
 const testimonials = [
   [
     {
       content:
-        "TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.",
+        "Lincify transformed our business with their expert strategies. We've seen unprecedented growth and couldn't be happier.",
       author: {
-        name: "Sheryl Berge",
-        role: "CEO at Lynch LLC",
+        name: "Jordan Lee",
+        role: "CEO at Horizon Ventures",
         image:
           "https://images.unsplash.com/photo-1579017331263-ef82f0bbc748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80",
       },
     },
     {
       content:
-        "I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.",
+        "Thanks to Lincify, our high-ticket sales have skyrocketed. Their tailored approach is truly unmatched.",
       author: {
-        name: "Amy Hahn",
-        role: "Director at Velocity Industries",
+        name: "Linda Graham",
+        role: "Founder of Elite Brands",
         image:
           "https://images.unsplash.com/photo-1623605931891-d5b95ee98459?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80",
       },
@@ -27,20 +26,20 @@ const testimonials = [
   [
     {
       content:
-        "The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.",
+        "Lincify's strategies have driven massive engagement and revenue for our business. We highly recommend them!",
       author: {
-        name: "Leland Kiehn",
-        role: "Founder of Kiehn and Sons",
+        name: "Michael Brown",
+        role: "Director at GrowthWorks",
         image:
           "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       },
     },
     {
       content:
-        "There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.",
+        "The team at Lincify is exceptional. Their insights and strategies have helped our business thrive in competitive markets.",
       author: {
-        name: "Erin Powlowski",
-        role: "COO at Armstrong Inc",
+        name: "Emily Clark",
+        role: "COO at Market Leaders",
         image:
           "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       },
@@ -49,20 +48,20 @@ const testimonials = [
   [
     {
       content:
-        "I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.",
+        "We've achieved remarkable growth thanks to Lincify's innovative strategies. They are a game-changer for high-ticket businesses.",
       author: {
-        name: "Peter Renolds",
-        role: "Founder of West Inc",
+        name: "David Johnson",
+        role: "Founder of Premier Solutions",
         image:
           "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
       },
     },
     {
       content:
-        "This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.",
+        "Lincify's team helped us develop a targeted strategy that has significantly increased our high-ticket sales. Highly recommended!",
       author: {
-        name: "Amy Hahn",
-        role: "Director at Velocity Industries",
+        name: "Sophia Martinez",
+        role: "CEO at Apex Enterprises",
         image:
           "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
       },
@@ -113,7 +112,7 @@ export default function Testimonials() {
               <ul role="list" className="flex flex-col gap-y-6 sm:gap-y-8">
                 {column.map((testimonial, testimonialIndex) => (
                   <li key={testimonialIndex}>
-                    <figure className="relative rounded-2xl bg-transparent transform-gpu [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#8686f01f_inset] p-6 shadow-xl ">
+                    <figure className="relative rounded-2xl bg-transparent transform-gpu [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#8686f01f_inset] p-6 shadow-xl backdrop:blur-2xl">
                       <QuoteIcon className="absolute left-6 top-6 fill-slate-950" />
                       <blockquote className="relative">
                         <p className="text-lg tracking-tight text-gray-100">
@@ -146,6 +145,8 @@ export default function Testimonials() {
             </li>
           ))}
         </ul>
+        <div className="gradient-03 z-0" />
+        <div className="gradient-04 z-0" />
       </Container>
     </section>
   );
