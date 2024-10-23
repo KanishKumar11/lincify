@@ -1,6 +1,7 @@
 "use client";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, useInView } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import Heading from "../Heading";
 
 export const Timeline = ({ data }) => {
   const ref = useRef(null);
@@ -23,38 +24,17 @@ export const Timeline = ({ data }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div className="w-full  font-sans md:px-10" ref={containerRef}>
+    <div className="w-full font-sans md:px-10" ref={containerRef}>
       <div className="mx-auto max-w-2xl md:text-center">
-        <h2 className="font-geist text-3xl tracking-tighter text-gray-100 sm:text-6xl">
-          Strategic{" "}
-          <span className="bg-gradient-to-br from-indigo-400 via-indigo-300 to-indigo-700 bg-clip-text text-transparent">
-            Mastery
-          </span>{" "}
-          for Elite Growth
-        </h2>
+        <Heading
+          title="Strategic Mastery for Elite Growth"
+          gradientText="Mastery"
+          tag="Strategies"
+        />
       </div>
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => (
-          <div
-            key={index}
-            className="flex justify-start pt-10 md:pt-40 md:gap-20"
-          >
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
-                <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
-              </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500 ">
-                {item.title}
-              </h3>
-            </div>
-
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
-                {item.title}
-              </h3>
-              {item.content}{" "}
-            </div>
-          </div>
+          <TimelineItem key={index} item={item} index={index} />
         ))}
         <div
           style={{
@@ -72,5 +52,42 @@ export const Timeline = ({ data }) => {
         </div>
       </div>
     </div>
+  );
+};
+
+const TimelineItem = ({ item, index }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const variants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={variants}
+      transition={{ duration: 0.5, delay: index * 0.2 }}
+      className="flex justify-start pt-10 md:pt-40 md:gap-20"
+    >
+      <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+        <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
+          <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
+        </div>
+        <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500 ">
+          {item.title}
+        </h3>
+      </div>
+
+      <div className="relative pl-20 pr-4 md:pl-4 w-full">
+        <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
+          {item.title}
+        </h3>
+        {item.content}{" "}
+      </div>
+    </motion.div>
   );
 };

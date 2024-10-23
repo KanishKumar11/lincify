@@ -24,6 +24,7 @@ import { IconCommand } from "@tabler/icons-react";
 import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 import Image from "next/image";
+import Logo from "../Logo";
 
 export const MacbookScroll = ({ src, showGradient, title, badge }) => {
   const ref = useRef(null);
@@ -58,7 +59,7 @@ export const MacbookScroll = ({ src, showGradient, title, badge }) => {
   return (
     <div
       ref={ref}
-      className="lg:min-h-[200vh]  flex flex-col items-center py-0 md:py-80 justify-start flex-shrink-0 [perspective:800px] transform md:scale-100  scale-[0.35] sm:scale-100"
+      className="lg:min-h-[200vh]  flex flex-col items-center py-16  md:py-52 justify-start flex-shrink-0 [perspective:800px] transform md:scale-100 scale-[0.4] overflow-visible sm:scale-100"
     >
       <motion.h2
         style={{
@@ -121,7 +122,7 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
           className="absolute inset-0 bg-[#010101] rounded-lg flex items-center justify-center"
         >
           <span className="text-white">
-            <AceternityLogo />
+            <Logo />
           </span>
         </div>
       </div>

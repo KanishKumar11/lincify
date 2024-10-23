@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import Heading from "../Heading";
 
 const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
   ssr: false,
@@ -395,8 +396,8 @@ export default function GlobalReach() {
   ];
 
   return (
-    <div className="flex flex-row items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
-      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
+    <div className="flex flex-row items-center justify-center py-20 h-[800px] md:h-auto dark:bg-black bg-white relative w-full">
+      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-screen min-h-[600px] px-4">
         <motion.div
           initial={{
             opacity: 0,
@@ -412,16 +413,16 @@ export default function GlobalReach() {
           className="div"
         >
           <div className="mx-auto max-w-2xl md:text-center">
-            <h2 className="font-geist text-3xl tracking-tighter text-gray-100 sm:text-6xl">
-              <span className="bg-gradient-to-br from-indigo-400 via-indigo-300 to-indigo-700 bg-clip-text text-transparent">
-                Our Global Impact{" "}
-              </span>{" "}
-              Spanning Continents and Cultures
-            </h2>
+            <Heading
+              title="Our Global Impact Spanning Continents and Cultures
+"
+              gradientText="Our Global Impact"
+              tag="Our customers"
+            />
           </div>
         </motion.div>
         <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent  z-40" />
-        <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
+        <div className="absolute w-full -bottom-20 h-full md:h-[93%] z-10">
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
       </div>

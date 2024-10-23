@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,9 +31,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <a href="/">
-              <img src="/logo.png" className="h-8 w-auto" alt="FarmUI logo" />
-            </a>
+            <Logo />
           </div>
 
           {/* Desktop menu */}

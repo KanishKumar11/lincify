@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
+import Heading from "../Heading";
 const testimonials = [
   [
     {
@@ -90,13 +91,13 @@ export default function Testimonials() {
 
       <div className="absolute inset-x-0 -top-10 opacity-50 z-10 m-auto h-[27rem] max-w-lg sm:h-64 sm:max-w-7xl"></div>
       <Container>
-        <div className="mx-auto max-w-2xl md:text-center">
-          <h2 className="font-geist text-3xl tracking-tighter text-gray-100 sm:text-6xl">
-            <span className="bg-gradient-to-br from-indigo-400 via-indigo-300 to-indigo-700 bg-clip-text text-transparent">
-              Loved
-            </span>{" "}
-            by businesses worldwide.
-          </h2>
+        <div className="mx-auto max-w-2xl md:text-center z-10 relative">
+          <Heading
+            title="Loved by businesses worldwide"
+            gradientText="Loved"
+            tag="Testimonials"
+          />
+
           <p className="mt-4 text-lg tracking-tight text-gray-300 font-geist">
             Our software is so simple that people can’t help but fall in love
             with it. Simplicity is easy when you just skip tons of
@@ -105,15 +106,15 @@ export default function Testimonials() {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3"
+          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 z-10  lg:max-w-none lg:grid-cols-3"
         >
           {testimonials.map((column, columnIndex) => (
             <li key={columnIndex}>
               <ul role="list" className="flex flex-col gap-y-6 sm:gap-y-8">
                 {column.map((testimonial, testimonialIndex) => (
                   <li key={testimonialIndex}>
-                    <figure className="relative rounded-2xl bg-transparent transform-gpu [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#8686f01f_inset] p-6 shadow-xl backdrop:blur-2xl">
-                      <QuoteIcon className="absolute left-6 top-6 fill-slate-950" />
+                    <figure className="relative rounded-2xl  transform-gpu [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#8686f01f_inset] p-6 shadow-xl backdrop:blur-2xl glassmorphism">
+                      <QuoteIcon className="absolute left-6 top-0 fill-slate-950" />
                       <blockquote className="relative">
                         <p className="text-lg tracking-tight text-gray-100">
                           {testimonial.content}
@@ -145,8 +146,10 @@ export default function Testimonials() {
             </li>
           ))}
         </ul>
-        <div className="gradient-03 z-0" />
-        <div className="gradient-04 z-0" />
+        <div className="gradient-06 z-0" />
+        <div className="gradient-07 z-0" />
+        <div className="gradient-09 z-0" />
+        <div className="gradient-05 z-0" />
       </Container>
     </section>
   );

@@ -28,7 +28,7 @@ export default function Hero() {
             title="Thriving Businesses Everywhere!"
           />
         </ScrollParallax>
-        <div className="absolute lg:top-1/4 top-1/2 lg:right-1/3 right-0 w-[60px] rounded-full">
+        <div className="md:absolute lg:top-1/4 top-1/2 lg:right-1/3 right-0 w-[60px] rounded-full hidden ">
           <Image
             src="/arrow.gif"
             alt=""
@@ -103,7 +103,7 @@ export default function Hero() {
           </div>
           <div className="-mt-40 mx-10">
             <div className="gradient-02 z-0 " />
-            <div className="overflow-hidden lg:-mt-80 -mt-40">
+            <div className="overflow-y-hidden lg:-mt-40 -mt-20">
               <MacbookScroll
                 badge={
                   <Link href="#">
