@@ -1,6 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import {
   Poppins,
   Sora,
@@ -38,7 +37,7 @@ export const space = Space_Grotesk({
   variable: "--font-groteskg",
 });
 
-export const metadata = {
+const metadata = {
   title: "Transform Your Business with Powerful Content Strategies | Lincify",
   description:
     "At Lincify, we help businesses grow through impactful content strategies that drive engagement and results.",
@@ -81,18 +80,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="overflow-x-hidden">
+    <html lang="en" className="overflow-x-hidden dark">
       <body
         className={`${sora.variable}${source.variable} ${space.variable} ${sora.className} antialiased `}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );
