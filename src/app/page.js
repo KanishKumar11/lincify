@@ -38,7 +38,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-black overflow-y-visible">
+    <div className="bg-black overflow-y-visible overflow-x-clip">
       <Navbar />
       <Hero />
       <Strategy />

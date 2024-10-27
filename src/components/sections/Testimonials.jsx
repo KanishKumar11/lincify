@@ -5,7 +5,7 @@ const testimonials = [
   [
     {
       content:
-        "Lincify transformed our business with their expert strategies. We've seen unprecedented growth and couldn't be happier.",
+        "Lincify has been a game-changer for our content strategy. Their seamless process and attention to detail have boosted our brand’s visibility and engagement.",
       author: {
         name: "Jordan Lee",
         role: "CEO at Horizon Ventures",
@@ -15,7 +15,7 @@ const testimonials = [
     },
     {
       content:
-        "Thanks to Lincify, our high-ticket sales have skyrocketed. Their tailored approach is truly unmatched.",
+        "The content Lincify creates consistently resonates with our audience. We've seen significant growth in both organic traffic and user engagement.",
       author: {
         name: "Linda Graham",
         role: "Founder of Elite Brands",
@@ -27,7 +27,7 @@ const testimonials = [
   [
     {
       content:
-        "Lincify's strategies have driven massive engagement and revenue for our business. We highly recommend them!",
+        "Lincify has transformed our content marketing strategy. Their team helped us create compelling, SEO-optimized content that has driven incredible traffic to our site.",
       author: {
         name: "Michael Brown",
         role: "Director at GrowthWorks",
@@ -37,7 +37,7 @@ const testimonials = [
     },
     {
       content:
-        "The team at Lincify is exceptional. Their insights and strategies have helped our business thrive in competitive markets.",
+        "Working with Lincify has been an incredible experience. Their ability to create tailored content strategies has increased our engagement across all platforms.",
       author: {
         name: "Emily Clark",
         role: "COO at Market Leaders",
@@ -49,7 +49,7 @@ const testimonials = [
   [
     {
       content:
-        "We've achieved remarkable growth thanks to Lincify's innovative strategies. They are a game-changer for high-ticket businesses.",
+        "The content strategies developed by Lincify have consistently delivered results. Our website traffic and lead generation have soared thanks to their expertise.",
       author: {
         name: "David Johnson",
         role: "Founder of Premier Solutions",
@@ -59,7 +59,7 @@ const testimonials = [
     },
     {
       content:
-        "Lincify's team helped us develop a targeted strategy that has significantly increased our high-ticket sales. Highly recommended!",
+        "Lincify's content creation services have been instrumental in helping us build a strong digital presence. Their creativity and understanding of our brand are unmatched.",
       author: {
         name: "Sophia Martinez",
         role: "CEO at Apex Enterprises",
@@ -95,14 +95,9 @@ export default function Testimonials() {
           <Heading
             title="Loved by businesses worldwide"
             gradientText="Loved"
-            tag="Testimonials"
+            tag="Trusted by Leading Brands"
+            text="Don't just take our word for it—here’s what our clients have to say about the impact Lincify has had on their businesses."
           />
-
-          <p className="mt-4 text-lg tracking-tight text-gray-300 font-geist">
-            Our software is so simple that people can’t help but fall in love
-            with it. Simplicity is easy when you just skip tons of
-            mission-critical features.
-          </p>
         </div>
         <ul
           role="list"

@@ -6,16 +6,16 @@ import Section from "./Section";
 const benefits = [
   {
     id: "0",
-    title: "Ask anything",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Content Strategy Development",
+    text: "We create a tailored content strategy aligned with your brand’s goals to engage your audience and drive results.",
     backgroundUrl: "/benefits/card-1.svg",
     iconUrl: "/benefits/icon-1.svg",
     imageUrl: "/benefits/image-2.png",
   },
   {
     id: "1",
-    title: "Improve everyday",
-    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+    title: "SEO-Friendly Content Creation",
+    text: "We produce SEO-driven content to increase your visibility and attract organic traffic.",
     backgroundUrl: "/benefits/card-2.svg",
     iconUrl: "/benefits/icon-2.svg",
     imageUrl: "/benefits/image-2.png",
@@ -23,16 +23,16 @@ const benefits = [
   },
   {
     id: "2",
-    title: "Connect everywhere",
-    text: "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
+    title: "Social Media Management",
+    text: "From engaging posts to strategic campaigns, we manage your social media to grow your brand.",
     backgroundUrl: "/benefits/card-3.svg",
     iconUrl: "/benefits/icon-3.svg",
     imageUrl: "/benefits/image-2.png",
   },
   {
     id: "3",
-    title: "Fast responding",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Visual Content Creation",
+    text: "Eye-catching graphics and videos that boost your brand’s message and appeal to your audience.",
     backgroundUrl: "/benefits/card-4.svg",
     iconUrl: "/benefits/icon-4.svg",
     imageUrl: "/benefits/image-2.png",
@@ -40,8 +40,8 @@ const benefits = [
   },
   {
     id: "4",
-    title: "Ask anything",
-    text: "Lets users quickly find answers to their questions without having to search through multiple sources.",
+    title: "Content Distribution & Promotion",
+    text: "We strategically distribute and promote your content to maximize reach and engagement.",
     backgroundUrl: "/benefits/card-5.svg",
     iconUrl: "/benefits/icon-1.svg",
     imageUrl: "/benefits/image-2.png",
@@ -49,8 +49,8 @@ const benefits = [
   },
   {
     id: "5",
-    title: "Improve everyday",
-    text: "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+    title: "Analytics & Performance Tracking",
+    text: "We track and analyze performance to optimize your content strategy and drive ongoing success.",
     backgroundUrl: "/benefits/card-6.svg",
     iconUrl: "/benefits/icon-2.svg",
     imageUrl: "/benefits/image-2.png",
@@ -66,6 +66,7 @@ const Benefits = () => {
           title="Services designed for Everyone"
           gradientText="Services"
           tag="Our Services"
+          text="Our content experts design a blueprint tailored to your brand’s needs, ensuring every piece of content aligns with your marketing goals."
         />
 
         <div className="flex flex-wrap gap-10 mb-10">

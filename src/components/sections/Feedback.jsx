@@ -26,11 +26,11 @@ const Feedback = () => (
             Founder | Lincify
           </p>
         </div>
-        <p className="mt-[24px] font-normal sm:text-[18px] text-[12px] sm:leading-[45px] leading-[39px] text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt illo
-          dicta consequatur similique debitis eius autem omnis reprehenderit
-          minima, officia saepe ullam, labore aperiam, perspiciatis ratione vero
-          quae eveniet magni.
+        <p className="mt-[24px] font-normal sm:text-[18px] text-[14px] sm:leading-[30px] leading-[26px] text-white">
+          “At Lincify, our mission is to help businesses unlock their full
+          potential through content strategies that not only engage but convert.
+          Like a rocket soaring to new heights, we are here to propel your brand
+          forward and ensure sustainable growth. “
         </p>
       </motion.div>
       <motion.div

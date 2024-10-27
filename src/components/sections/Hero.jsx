@@ -12,7 +12,7 @@ import Notification2 from "../Notification2";
 
 export default function Hero() {
   return (
-    <div className="relative">
+    <div className="relative z-10">
       <section className="relative max-w-full mx-auto z-1">
         <RetroGrid />
 
@@ -25,7 +25,7 @@ export default function Hero() {
         <ScrollParallax isAbsolutelyPositioned>
           <Notification2
             className="hidden absolute left-10 top-1/3 w-[18rem] xl:flex"
-            title="Thriving Businesses Everywhere!"
+            title="Thriving Content creation for everyone!"
           />
         </ScrollParallax>
         <div className="md:absolute lg:top-1/4 top-1/2 lg:right-1/3 right-0 w-[60px] rounded-full hidden ">
@@ -37,14 +37,14 @@ export default function Hero() {
             className="opacity-60"
           />
         </div>
-        <div className="max-w-screen-xl z-10 mx-auto px-4 py-28 gap-12 text-gray-600 md:px-8">
+        <div className="max-w-screen-xl relative z-50 mx-auto px-4 py-28 gap-12 text-gray-600 md:px-8">
           <div className="space-y-5 max-w-3xl leading-0 lg:leading-5 mx-auto text-center z-10 relative">
             <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block hover:scale-105 transition-transform">
               <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </span>
               <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-1.5 px-6 ring-1 ring-white/10 text-sm">
-                <span>Elevate Your Brand</span>
+                <span>Effortless content creation for brands</span>
                 <svg
                   fill="none"
                   height="16"
@@ -70,9 +70,9 @@ export default function Hero() {
               transition={{ duration: 0.5, ease: [0.17, 0.67, 0.83, 0.67] }}
               className="text-4xl tracking-tighter font-geist bg-clip-text bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)] text-transparent mx-auto md:text-6xl"
             >
-              High-Ticket Marketing Solutions for{" "}
+              Unlock the Power of Effortless{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-orange-200">
-                Extraordinary Growth.
+                Content Creation.
               </span>
             </motion.h2>
 
@@ -82,12 +82,12 @@ export default function Hero() {
               transition={{ duration: 0.5, ease: [0.17, 0.67, 0.83, 0.67] }}
               className="max-w-2xl mx-auto text-gray-300"
             >
-              At Lincify, we craft tailored marketing strategies for high-ticket
-              businesses. Our expert team ensures your brand stands out, driving
-              exceptional growth and success.
+              Lincify simplifies content creation, helping brands focus on
+              building connections and driving engagement. From articles to
+              social media posts, we offer seamless, high-quality solutions.
             </motion.p>
 
-            <div className="z-10 items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
+            <div className="z-50 relative items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0 cursor-pointer">
               <span className="relative inline-block overflow-hidden rounded-full p-[1.5px]">
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950 text-xs font-medium text-gray-50 backdrop-blur-3xl hover:scale-105 transition-transform">
