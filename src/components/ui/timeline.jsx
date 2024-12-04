@@ -239,7 +239,7 @@ export const Timeline = ({ data }) => {
               alt=""
               height={100}
               width={300}
-              className="h-[25px] lg:w-1/3 w-full "
+              className="h-[25px] max-lg:w-full "
             />
           </motion.div>
         ))}

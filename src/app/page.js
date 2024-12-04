@@ -71,10 +71,67 @@ export const timelineData = [
 export default function HomePage() {
   return (
     <div className="relative bg-black  scroll-snap-y snap-mandatory ">
-      <div className="absolute w-[94px] h-[372px] -top-[156px] left-1/4 rotate-[25.62deg] bg-[rgba(61,70,51,1)] blur-[70px]" />
-      <div className="absolute w-[292px] h-[550px] lg:top-[46px] top-1/2 lg:left-[500px]  opacity-[0.26] bg-gradient-to-br from-[#219B4B] via-[#3EAD59] via-[#9AA34F] to-[#8cc655] blur-[70px]" />
-      <div className="absolute w-[166px] h-[212px] top-[356px] left-[60%] lg:left-[1147px] opacity-[0.55] bg-[rgba(62,173,89,1)] blur-[129.7px]" />
-      <div className="absolute w-[166px] h-[212px] top-[504px] left-[-85px] opacity-[0.8] bg-[rgba(62,173,89,1)] blur-[119.7px]" />
+      <div
+        className="absolute w-[94px] h-[372px] -top-[156px] left-1/4 rotate-[25.62deg]"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(61,70,51,0.8), rgba(61,70,51,0.5))",
+          backgroundSize: "400% 400%",
+          filter: "blur(50px)",
+          animation: "gradientAnimation 15s ease infinite",
+        }}
+      />
+
+      <div
+        className="absolute w-[292px] h-[550px] lg:top-[46px] top-1/2 lg:left-[500px]"
+        style={{
+          background:
+            "linear-gradient(to bottom right, #219B4B, #3EAD59, #9AA34F, #8cc655)",
+          backgroundSize: "400% 400%",
+          opacity: 0.3,
+          filter: "blur(50px)",
+          animation: "gradientAnimation 15s ease infinite",
+        }}
+      />
+
+      <div
+        className="absolute w-[166px] h-[212px] top-[356px] left-[60%] lg:left-[1147px]"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(62,173,89,0.8), rgba(62,173,89,0.5))",
+          backgroundSize: "400% 400%",
+          opacity: 0.55,
+          filter: "blur(50px)",
+          animation: "gradientAnimation 15s ease infinite",
+        }}
+      />
+
+      <div
+        className="absolute w-[166px] h-[212px] top-[504px] left-[-85px]"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(62,173,89,0.8), rgba(62,173,89,0.5))",
+          backgroundSize: "400% 400%",
+          opacity: 0.8,
+          filter: "blur(50px)",
+          animation: "gradientAnimation 15s ease infinite",
+        }}
+      />
+
+      {/* Add this to your global CSS or a style tag */}
+      <style jsx global>{`
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      `}</style>
       <div className="min-h-screen snap-start h-screen">
         <Navbar />
         <Hero />

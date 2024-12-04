@@ -71,8 +71,15 @@ export default function Pricing() {
 
   useEffect(() => {
     const moveCursor = (e) => {
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
+      // Get the bounding rectangle of the pricing section
+      const pricingSection = document.querySelector(".pricing-section");
+      if (pricingSection) {
+        const rect = pricingSection.getBoundingClientRect();
+
+        // Calculate cursor position relative to the section
+        cursorX.set(e.clientX - rect.left);
+        cursorY.set(e.clientY - rect.top);
+      }
     };
 
     window.addEventListener("mousemove", moveCursor);
@@ -81,9 +88,8 @@ export default function Pricing() {
       window.removeEventListener("mousemove", moveCursor);
     };
   }, []);
-
   return (
-    <div className="max-w-7xl mx-auto my-20 flex flex-col gap-5 relative py-20">
+    <div className="max-w-7xl mx-auto my-20 flex flex-col gap-5 relative pricing-section py-20">
       {/* Cursor follower */}
       <motion.div
         className="absolute top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference"
@@ -204,9 +210,8 @@ export default function Pricing() {
               </div>
               <div
                 className={cn(
-                  "w-0.5 h-full top-[3135px] left-[549px] border-t border-transparent border-opacity-50 bg-gradient-to-b mx-20 from-transparent via-white to-transparent",
-                  i == 2 && "hidden",
-                  "lg:block hidden"
+                  "w-0.5 h-full top-[3135px] left-[549px] border-t border-transparent border-opacity-50 bg-gradient-to-b mx-20 from-transparent via-white to-transparent lg:block hidden",
+                  i == 2 && "lg:hidden"
                 )}
               />
             </motion.div>
