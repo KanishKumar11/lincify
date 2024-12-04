@@ -103,7 +103,7 @@ export default function Pricing() {
         }}
       />
 
-      <div className="absolute w-[47.62px] h-[1015.04px] -top-1/4 z-10 right-1/4 opacity-[0.5] rotate-[53.12deg] bg-[rgba(7,243,176,1)] blur-[80px]" />
+      <div className="absolute w-[47.62px] h-[1015.04px] lg:-top-1/4 -top-1/2 z-10 lg:right-1/4 opacity-[0.5] rotate-[53.12deg] bg-[rgba(7,243,176,1)] blur-[80px]" />
       <div className="absolute w-[244px] h-[340px] bottom-0 left-[-67px] opacity-[0.3] bg-[#FDF8B3] blur-[129.7px]"></div>
 
       <motion.h2
