@@ -91,7 +91,7 @@ export default function WhatWeCanDo() {
 
         {/* Section Title */}
         <motion.h2
-          className="font-medium lg:text-6xl text-5xl text-center bg-gradient-to-r from-white via-white to-[#2B9E70] bg-clip-text text-transparent"
+          className="font-medium lg:text-6xl text-4xl text-center bg-gradient-to-r from-white via-white to-[#2B9E70] bg-clip-text text-transparent"
           variants={itemVariants}
         >
           What we do

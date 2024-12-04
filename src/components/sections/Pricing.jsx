@@ -155,7 +155,7 @@ export default function Pricing() {
         <div className="w-max mx-auto justify-between border p-12 rounded-3xl relative overflow-hidden flex grb flex-wrap gap-10 ">
           {pricingData[active].map((plan, i) => (
             <motion.div
-              className={`z-10 flex flex-row  max-sm:w-full max-lg:items-center max-lg:justify-center`}
+              className={`z-10 flex flex-row  max-sm:w-full max-md:items-center max-lg:justify-center`}
               key={`${plan.name}-${i}`}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}

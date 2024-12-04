@@ -46,18 +46,18 @@ export default function Videos() {
       transition={{ duration: 0.5 }}
     >
       <motion.h2
-        className="lg:text-6xl text-4xl relative mb-10 text-center leading-[50px] lg:leading-[80px]"
+        className="lg:text-6xl text-3xl relative mb-10 text-center leading-[50px] lg:leading-[80px]"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         Videos that makes <br />
         <div className="inline-flex relative z-20">
-          <span className="relative z-10">your brand spread like</span>
+          <span className="relative z-10 inline-flex">your brand spread</span>
           <div className="absolute bg-gradient-to-r from-[#07F3B0]/30 via-transparent to-transparent -left-2 top-0 z-0 w-full h-[50px] lg:h-[80px]" />
           <div className="absolute  bg-[#07F3B0] via-transparent to-transparent -left-2 top-0 z-0 w-1 lg:h-[80px] h-[50px]" />
         </div>{" "}
-        wildfire
+        <span className="inline-flex"> like wildfire</span>
       </motion.h2>
       <motion.p
         className="text-slate-50 text-[15px] font-medium"

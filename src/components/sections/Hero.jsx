@@ -17,13 +17,13 @@ export default function Hero() {
         </div>
       </BoxReveal>
       <BoxReveal boxColor={"rgba(7,243,176,1)"} duration={0.5}>
-        <h1 className="font-medium lg:text-6xl text-5xl text-center text-balance  bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF] to-[rgba(7,243,176,0.7)] bg-clip-text text-transparent">
+        <h1 className="font-medium lg:text-6xl text-4xl text-center text-balance  bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF] to-[rgba(7,243,176,0.7)] bg-clip-text text-transparent">
           Fuel Your Creativity
           <br /> Craft Content That Leaves a Mark!
         </h1>
       </BoxReveal>
       <BoxReveal boxColor={"rgba(7,243,176,1)"} duration={0.5}>
-        <p className="text-[10px]  text-balance max-w-sm">
+        <p className="text-[10px]  text-balance max-w-sm text-center">
           We help entrepreneurs, creators, and VCs build distribution
           with organic videos, which predictably bring them more leads and
           revenue at scale.
