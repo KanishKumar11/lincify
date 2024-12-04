@@ -6,36 +6,27 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 @layer base {
   :root {
-    --font-sora: var(--font-sorag), sans-serif;
-    --font-code: var(--font-codeg), monospace;
-    --font-grotesk: var(--font-groteskg), sans-serif;
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -44,25 +35,25 @@ body {
     --radius: 0.5rem;
   }
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -79,186 +70,58 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
-.gradient-02 {
-  position: absolute;
-  width: 200px;
-  height: 438px;
-  top: 30%;
-  right: 0px;
-  background: #7aebfb;
-  filter: blur(190px);
-}
-
-.gradient-03 {
-  position: absolute;
-  width: 200px;
-  height: 438px;
-  top: 30%;
-  right: 30%;
-  background: #7aebfb;
-  filter: blur(190px);
-}
-
-.gradient-01 {
-  position: absolute;
-  width: 200px;
-  height: 438px;
-  top: 30%;
-  left: -30%;
-  background: #fb7abf;
-  filter: blur(190px);
-}
-
-.gradient-04 {
-  position: absolute;
-  width: 200px;
-  height: 438px;
-  top: 30%;
-  left: 30%;
-  background: #7aebfb;
-  filter: blur(190px);
-}
-
-.glassmorphism {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.75);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-}
-
-.gradient-05 {
-  position: absolute;
-  width: 200px;
-  height: 316px;
-  left: 0px;
-  top: 0px;
-  background: #8d39a3;
-  filter: blur(175px);
-}
-
-.gradient-06 {
-  position: absolute;
-  width: 200px;
-  height: 316px;
-  right: 0px;
-  top: 0px;
-  background: #8d39a3;
-  filter: blur(175px);
-}
-
-.gradient-07 {
-  position: absolute;
-  width: 200px;
-  height: 316px;
-  right: 50%;
-  translate: 50%;
-  top: 0px;
-  background: #8d39a3;
-  filter: blur(175px);
-}
-
-.gradient-09 {
-  position: absolute;
-  width: 200px;
-  height: 316px;
-  right: 50%;
-  translate: 50%;
-  bottom: 0px;
-  background: #8d39a3;
-  filter: blur(175px);
-}
-
-.gradient-08 {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.text-ring {
-  --character-width: 1; /* In "ch" units */
-  --inner-angle: calc((360 / var(--total)) * 1deg);
-  --radius: calc(
-    (
-      var(--character-width, 1) / sin(var(--inner-angle))
-    ) * -1ch
+.glob-b1 {
+  border-image-source: linear-gradient(
+    294.27deg,
+    rgba(253, 248, 179, 0.3) 39.91%,
+    rgba(7, 243, 176, 0.3) 101.06%
   );
 }
-
-.text-ring [style*=--index] {
-  transform:
-    translate(-50%, -50%)
-    rotate(calc(var(--inner-angle) * var(--index)))
-    translateY(var(--radius, -5ch));
-}
-
-.footer-gradient {
-  position: absolute;
-  width: 500px;
-  height: 100px;
-  left: 37%;
-  bottom: 0;
-  background: #65c4fa;
-  filter: blur(150px);
-}
-
-/* Mobile optimization */
-@media (max-width: 768px) {
-  .gradient-02,
-  .gradient-03,
-  .gradient-01,
-  .gradient-04 {
-    width: 150px;
-    height: 300px;
-    filter: blur(130px);
-    top: 40%;
-  }
-
-  .gradient-01 {
-    left: -40%;
-  }
-
-  .gradient-02 {
-    right: 0;
-  }
-
-  .gradient-03 {
-    right: 20%;
-  }
-
-  .gradient-04 {
-    left: 20%;
-  }
-
-  .gradient-05,
-  .gradient-06,
-  .gradient-07,
-  .gradient-09 {
-    width: 150px;
-    height: 240px;
-    filter: blur(120px);
-  }
-
-  .footer-gradient {
-    width: 350px;
-    height: 80px;
-    left: 25%;
-    filter: blur(120px);
-  }
-}
-
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 10px;
 }
-::-webkit-scrollbar-track{
-  background-color: #2a2a2a;  /* Dark background */
-  border-radius: 10px;        
+::-webkit-scrollbar-track {
+  background-color: #2a2a2a; /* Dark background */
+  border-radius: 10px;
 }
-::-webkit-scrollbar-thumb{
-  background-color: #65c4fa;  /* Slightly lighter handle */
+::-webkit-scrollbar-thumb {
+  background-color: #3db93f; /* Slightly lighter handle */
   border-radius: 10px;
   border: 2px solid #2a2a2a;
-
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #777;  /* Lighter color on hover */
+  background-color: #777; /* Lighter color on hover */
+}
+.gr1 {
+  background: linear-gradient(
+    177.56deg,
+    #ffffff 11.19%,
+    rgba(123, 123, 123, 0.39) 122.91%
+  );
+  background-clip: text;
+}
+.grb {
+  background: linear-gradient(110.12deg, #2c3027 -80.38%, #0a0b0a 83.54%);
+  border: 1px solid;
+
+  border-image-source: linear-gradient(
+    255.88deg,
+    rgba(7, 243, 176, 0.5) 5.8%,
+    rgba(253, 248, 179, 0.5) 103.28%
+  );
+}
+.grbt {
+  /* background: linear-gradient(110.12deg, #2c3027 -80.38%, #0a0b0a 83.54%); */
+  background: rgba(7, 243, 176, 0.05);
+
+  border: 1px solid;
+
+  border-image-source: linear-gradient(
+    255.88deg,
+    rgba(7, 243, 176, 0.5) 5.8%,
+    rgba(253, 248, 179, 0.5) 103.28%
+  );
+}
+.grn {
+  background: linear-gradient(110.12deg, #2c3027 -80.38%, #0a0b0a 83.54%);
 }

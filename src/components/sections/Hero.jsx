@@ -1,122 +1,50 @@
-"use client";
-import React, { useEffect, useRef } from "react";
-import { Badge } from "lucide-react";
-import RetroGrid from "../ui/Grid";
-import { MacbookScroll } from "../ui/macbook-scroll";
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { ScrollParallax } from "react-just-parallax";
-import Notification from "../Notification";
-import Notification2 from "../Notification2";
+import React from "react";
+import { Badge } from "../ui/badge";
+import { Image } from "@nextui-org/react";
+import NextImage from "next/image";
+import BoxReveal from "../ui/box-reveal";
 
 export default function Hero() {
   return (
-    <div className="relative z-10">
-      <section className="relative max-w-full mx-auto z-1">
-        <RetroGrid />
-
-        <ScrollParallax isAbsolutelyPositioned>
-          <Notification
-            className="hidden absolute right-10 bottom-2/3 w-[18rem] xl:flex"
-            title="Our Happy customers"
-          />
-        </ScrollParallax>
-        <ScrollParallax isAbsolutelyPositioned>
-          <Notification2
-            className="hidden absolute left-10 top-1/3 w-[18rem] xl:flex"
-            title="Thriving Content creation for everyone!"
-          />
-        </ScrollParallax>
-        <div className="md:absolute lg:top-1/4 top-1/2 lg:right-1/3 right-0 w-[60px] rounded-full hidden ">
-          <Image
-            src="/arrow.gif"
-            alt=""
-            width={100}
-            height={50}
-            className="opacity-60"
-          />
+    <div className="h-[80%] flex items-center justify-center flex-col gap-12 relative">
+      <BoxReveal boxColor={"rgba(7,243,176,1)"} duration={0.5}>
+        <div className="flex gap-2">
+          <h2 className="text-[13px]">Effortless content creation for </h2>
+          <Badge variant={"secondary"} className="">
+            {" "}
+            Brands
+          </Badge>
         </div>
-        <div className="max-w-screen-xl relative z-50 mx-auto px-4 py-28 gap-12 text-gray-600 md:px-8">
-          <div className="space-y-5 max-w-3xl leading-0 lg:leading-5 mx-auto text-center z-10 relative">
-            <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block hover:scale-105 transition-transform">
-              <span className="absolute inset-0 overflow-hidden rounded-full">
-                <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              </span>
-              <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-1.5 px-6 ring-1 ring-white/10 text-sm">
-                <span>Effortless content creation for brands</span>
-                <svg
-                  fill="none"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.75 8.75L14.25 12L10.75 15.25"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                  />
-                </svg>
-              </div>
-              <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-            </button>
-
-            <motion.h2
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, ease: [0.17, 0.67, 0.83, 0.67] }}
-              className="text-4xl tracking-tighter font-geist bg-clip-text bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)] text-transparent mx-auto md:text-6xl"
-            >
-              Unlock the Power of Effortless{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-orange-200">
-                Content Creation.
-              </span>
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, ease: [0.17, 0.67, 0.83, 0.67] }}
-              className="max-w-2xl mx-auto text-gray-300"
-            >
-              Lincify simplifies content creation, helping brands focus on
-              building connections and driving engagement. From articles to
-              social media posts, we offer seamless, high-quality solutions.
-            </motion.p>
-
-            <div className="z-50 relative items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0 cursor-pointer">
-              <span className="relative inline-block overflow-hidden rounded-full p-[1.5px]">
-                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950 text-xs font-medium text-gray-50 backdrop-blur-3xl hover:scale-105 transition-transform">
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/5 via-purple-400/20 to-transparent text-white border-input border-[1px] hover:bg-transparent/90 transition-colors sm:w-auto py-4 px-10 text-lg"
-                  >
-                    Book a call
-                  </a>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div className="-mt-40 mx-10">
-            <div className="gradient-02 z-0 " />
-            <div className="overflow-y-hidden lg:-mt-40 -mt-20">
-              <MacbookScroll
-                badge={
-                  <Link href="#">
-                    <Badge className="h-10 w-10 transform -rotate-12" />
-                  </Link>
-                }
-                src={`https://farmui.vercel.app/dashboard.png`}
-                showGradient={true}
-              />
-            </div>
-          </div>
+      </BoxReveal>
+      <BoxReveal boxColor={"rgba(7,243,176,1)"} duration={0.5}>
+        <h1 className="font-medium lg:text-6xl text-5xl text-center text-balance  bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF] to-[rgba(7,243,176,0.7)] bg-clip-text text-transparent">
+          Fuel Your Creativity
+          <br /> Craft Content That Leaves a Mark!
+        </h1>
+      </BoxReveal>
+      <BoxReveal boxColor={"rgba(7,243,176,1)"} duration={0.5}>
+        <p className="text-[10px]  text-balance max-w-sm">
+          We help entrepreneurs, creators, and VCs build distribution
+          with organic videos, which predictably bring them more leads and
+          revenue at scale.
+        </p>
+      </BoxReveal>
+      <BoxReveal boxColor={"rgba(7,243,176,1)"} duration={0.5}>
+        <Image
+          as={NextImage}
+          alt=""
+          src="/images/1.svg"
+          width={120}
+          height={38}
+          className="hover:scale-110 transition-all ease-soft-spring"
+        />
+      </BoxReveal>
+      <div className="h-10 p-5 absolute bottom-2 w-full flex items-center justify-between">
+        <div className="flex gap-2">Follow Us</div>
+        <div className="flex gap-1 text-white">
+          Scroll <span className="text-[rgba(147,147,147,1)]"> to explore</span>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

@@ -1,159 +1,241 @@
-import clsx from "clsx";
-import Image from "next/image";
-import Heading from "../Heading";
-const testimonials = [
-  [
-    {
-      content:
-        "Lincify has been a game-changer for our content strategy. Their seamless process and attention to detail have boosted our brand’s visibility and engagement.",
-      author: {
-        name: "Jordan Lee",
-        role: "CEO at Horizon Ventures",
-        image:
-          "https://images.unsplash.com/photo-1579017331263-ef82f0bbc748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80",
-      },
-    },
-    {
-      content:
-        "The content Lincify creates consistently resonates with our audience. We've seen significant growth in both organic traffic and user engagement.",
-      author: {
-        name: "Linda Graham",
-        role: "Founder of Elite Brands",
-        image:
-          "https://images.unsplash.com/photo-1623605931891-d5b95ee98459?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80",
-      },
-    },
-  ],
-  [
-    {
-      content:
-        "Lincify has transformed our content marketing strategy. Their team helped us create compelling, SEO-optimized content that has driven incredible traffic to our site.",
-      author: {
-        name: "Michael Brown",
-        role: "Director at GrowthWorks",
-        image:
-          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      },
-    },
-    {
-      content:
-        "Working with Lincify has been an incredible experience. Their ability to create tailored content strategies has increased our engagement across all platforms.",
-      author: {
-        name: "Emily Clark",
-        role: "COO at Market Leaders",
-        image:
-          "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      },
-    },
-  ],
-  [
-    {
-      content:
-        "The content strategies developed by Lincify have consistently delivered results. Our website traffic and lead generation have soared thanks to their expertise.",
-      author: {
-        name: "David Johnson",
-        role: "Founder of Premier Solutions",
-        image:
-          "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-      },
-    },
-    {
-      content:
-        "Lincify's content creation services have been instrumental in helping us build a strong digital presence. Their creativity and understanding of our brand are unmatched.",
-      author: {
-        name: "Sophia Martinez",
-        role: "CEO at Apex Enterprises",
-        image:
-          "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-      },
-    },
-  ],
-];
+import React, { useEffect, useRef, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-function QuoteIcon(props) {
-  return (
-    <svg aria-hidden="true" width={105} height={78} {...props}>
-      <path d="M25.086 77.292c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622C1.054 58.534 0 53.411 0 47.686c0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C28.325 3.917 33.599 1.507 39.324 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Zm54.24 0c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622-2.11-4.52-3.164-9.643-3.164-15.368 0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C82.565 3.917 87.839 1.507 93.564 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Z" />
-    </svg>
-  );
-}
+const Testimonials = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    skipSnaps: false,
+  });
 
-export default function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(true);
+
+  const autoplay = useRef(null);
+
+  const onSelect = () => {
+    if (!emblaApi) return;
+    setCurrentIndex(emblaApi.selectedScrollSnap());
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  };
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+
+    autoplay.current = setInterval(() => {
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext();
+      } else {
+        emblaApi.scrollTo(0);
+      }
+    }, 5000); // Change slide every 5 seconds
+
+    return () => {
+      clearInterval(autoplay.current);
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi]);
+
+  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
+  const scrollNext = () => emblaApi && emblaApi.scrollNext();
+
   return (
-    <section
-      id="testimonials"
-      aria-label="What our customers are saying"
-      className=" relative bg-transpaarent py-20 sm:py-10 z-1 bg-page-gradient"
+    <motion.div
+      className="justify-between border lg:p-12 py-4 rounded-l-3xl relative overflow-hidden flex grbt ml-5 flex-col gap-5"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <div className="absolute -z-1 inset-0  h-[600px] w-full bg-transparent opacity-5 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-
-      <div className="absolute top-0 z-[0] h-screen opacity-20 w-screen bg-purple-950/10 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-
-      <div className="absolute inset-x-0 -top-10 opacity-50 z-10 m-auto h-[27rem] max-w-lg sm:h-64 sm:max-w-7xl"></div>
-      <Container>
-        <div className="mx-auto max-w-2xl md:text-center z-10 relative">
-          <Heading
-            title="Loved by businesses worldwide"
-            gradientText="Loved"
-            tag="Trusted by Leading Brands"
-            text="Don't just take our word for it—here’s what our clients have to say about the impact Lincify has had on their businesses."
-          />
+      <motion.h2
+        className="text-3xl font-medium text-left mb-8 px-10 py-10"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        Testimonials
+      </motion.h2>
+      <div className="px-4 relative">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-2 snap-mandatory">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <TestimonialCard
+                  content={testimonial.content}
+                  author={testimonial.author}
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
-        <ul
-          role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 z-10  lg:max-w-none lg:grid-cols-3"
+        {/* <motion.button
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full"
+          onClick={scrollPrev}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          disabled={!canScrollPrev}
         >
-          {testimonials.map((column, columnIndex) => (
-            <li key={columnIndex}>
-              <ul role="list" className="flex flex-col gap-y-6 sm:gap-y-8">
-                {column.map((testimonial, testimonialIndex) => (
-                  <li key={testimonialIndex}>
-                    <figure className="relative rounded-2xl  transform-gpu [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#8686f01f_inset] p-6 shadow-xl backdrop:blur-2xl glassmorphism">
-                      <QuoteIcon className="absolute left-6 top-0 fill-slate-950" />
-                      <blockquote className="relative">
-                        <p className="text-lg tracking-tight text-gray-100">
-                          {testimonial.content}
-                        </p>
-                      </blockquote>
-                      <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100/10 pt-6">
-                        <div>
-                          <div className="font-display text-base text-gray-100">
-                            {testimonial.author.name}
-                          </div>
-                          <div className="mt-1 text-sm text-slate-500">
-                            {testimonial.author.role}
-                          </div>
-                        </div>
-                        <div className="overflow-hidden rounded-full bg-slate-50">
-                          <Image
-                            className="h-14 w-14 object-cover"
-                            src={testimonial.author.image}
-                            alt=""
-                            width={56}
-                            height={56}
-                          />
-                        </div>
-                      </figcaption>
-                    </figure>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-        <div className="gradient-06 z-0" />
-        <div className="gradient-07 z-0" />
-        <div className="gradient-09 z-0" />
-        <div className="gradient-05 z-0" />
-      </Container>
-    </section>
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </motion.button>
+        <motion.button
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full"
+          onClick={scrollNext}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          disabled={!canScrollNext}
+        >
+          <ChevronRight className="w-6 h-6 text-white" />
+        </motion.button> */}
+      </div>
+      <div className="flex justify-center mt-4">
+        {testimonials.map((_, index) => (
+          <motion.div
+            key={index}
+            className={`w-2 h-2 rounded-full mx-1 ${
+              index === currentIndex ? "bg-white" : "bg-gray-500"
+            }`}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
+          />
+        ))}
+      </div>
+    </motion.div>
   );
-}
-export function Container({ className, ...props }) {
+};
+
+const TestimonialCard = ({ content, author }) => {
   return (
-    <div
-      className={clsx("mx-auto max-w-7xl px-4 sm:px-6 lg:px-8", className)}
-      {...props}
-    />
+    <motion.div
+      className="p-4 bg-[rgb(13,13,13)] text-white rounded-md shadow-md flex flex-col gap-5 min-w-[280px] py-8 px-10 lg:min-w-[400px] snap-start"
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
+    >
+      <motion.div
+        className="flex items-center space-x-6"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <img
+          src={author.image}
+          alt={author.name}
+          className="w-12 h-12 rounded-full aspect-auto object-cover"
+        />
+        <div>
+          <h3 className="text-lg font-semibold">{author.name}</h3>
+          <p className="text-sm text-gray-400">{author.role}</p>
+        </div>
+      </motion.div>
+      <motion.p
+        className="mt-4 text-gray-300"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        {content}
+      </motion.p>
+    </motion.div>
   );
-}
+};
+
+// Keep the testimonials data as it is
+
+export default Testimonials;
+
+// Testimonial data
+const testimonials = [
+  {
+    content:
+      "Lincify has been a game-changer for our content strategy. Their seamless process and attention to detail have boosted our brand’s visibility and engagement.",
+    author: {
+      name: "Jordan Lee",
+      role: "CEO at Horizon Ventures",
+      image:
+        "https://images.unsplash.com/photo-1579017331263-ef82f0bbc748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80",
+    },
+  },
+  {
+    content:
+      "The content Lincify creates consistently resonates with our audience. We've seen significant growth in both organic traffic and user engagement.",
+    author: {
+      name: "Linda Graham",
+      role: "Founder of Elite Brands",
+      image:
+        "https://images.unsplash.com/photo-1623605931891-d5b95ee98459?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80",
+    },
+  },
+  {
+    content:
+      "Lincify has transformed our content marketing strategy. Their team helped us create compelling, SEO-optimized content that has driven incredible traffic to our site.",
+    author: {
+      name: "Michael Brown",
+      role: "Director at GrowthWorks",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    },
+  },
+  {
+    content:
+      "Working with Lincify has been an incredible experience. Their ability to create tailored content strategies has increased our engagement across all platforms.",
+    author: {
+      name: "Emily Clark",
+      role: "COO at Market Leaders",
+      image:
+        "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    },
+  },
+  {
+    content:
+      "Lincify has been a game-changer for our content strategy. Their seamless process and attention to detail have boosted our brand’s visibility and engagement.",
+    author: {
+      name: "Jordan Lee",
+      role: "CEO at Horizon Ventures",
+      image:
+        "https://images.unsplash.com/photo-1579017331263-ef82f0bbc748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80",
+    },
+  },
+  {
+    content:
+      "The content Lincify creates consistently resonates with our audience. We've seen significant growth in both organic traffic and user engagement.",
+    author: {
+      name: "Linda Graham",
+      role: "Founder of Elite Brands",
+      image:
+        "https://images.unsplash.com/photo-1623605931891-d5b95ee98459?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80",
+    },
+  },
+  {
+    content:
+      "Lincify has transformed our content marketing strategy. Their team helped us create compelling, SEO-optimized content that has driven incredible traffic to our site.",
+    author: {
+      name: "Michael Brown",
+      role: "Director at GrowthWorks",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    },
+  },
+  {
+    content:
+      "Working with Lincify has been an incredible experience. Their ability to create tailored content strategies has increased our engagement across all platforms.",
+    author: {
+      name: "Emily Clark",
+      role: "COO at Market Leaders",
+      image:
+        "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    },
+  },
+];

@@ -1,62 +1,39 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import {
-  Poppins,
-  Sora,
-  Source_Code_Pro,
-  Space_Grotesk,
-} from "next/font/google";
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+import RootProvider from "@/providers/RootProvider";
+import { Inter } from "next/font/google";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const geistSans = Inter({
+  weight: ["100", "200", "300", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
-  weight: "100 900",
 });
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-export const sora = Sora({
-  subsets: ["latin"],
-  weight: ["300", "400", "600"],
-  variable: "--font-sorag",
-});
-export const source = Source_Code_Pro({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-codeg",
-});
-export const space = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["300"],
-  variable: "--font-groteskg",
-});
-
-const metadata = {
+export const metadata = {
   title: "Transform Your Business with Powerful Content Strategies | Lincify",
   description:
     "At Lincify, we help businesses grow through impactful content strategies that drive engagement and results.",
   keywords:
     "content strategies, business growth, high-ticket sales, content marketing, engagement",
-  authors: [{ name: "Lincify" }],
-  creator: "Lincify",
+  authors: [{ name: "Kanish Kumar", url: "https://kanishkumar.in/" }],
+  creator: "Kanish Kumar",
   publisher: "Lincify",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.lincifymedia.com/",
+    url: "https://www.lincify.in/",
     site_name: "Lincify",
     title: "Transform Your Business with Powerful Content Strategies | Lincify",
     description:
       "At Lincify, we help businesses grow through impactful content strategies that drive engagement and results.",
     images: [
       {
-        url: "https://www.lincifymedia.com/meta.png",
+        url: "https://www.lincify.in/logo.png",
         width: 1200,
         height: 630,
         alt: "Lincify - Empowering Business Growth",
@@ -70,7 +47,7 @@ const metadata = {
     title: "Transform Your Business with Powerful Content Strategies | Lincify",
     description:
       "At Lincify, we help businesses grow through impactful content strategies that drive engagement and results.",
-    images: ["https://www.lincifymedia.com/meta.png"], // Add a relevant image URL for Twitter
+    images: ["https://www.lincify.in/logo.png"], // Add a relevant image URL for Twitter
   },
   icons: {
     icon: "/favicon.ico",
@@ -80,11 +57,9 @@ const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="overflow-x-hidden dark">
-      <body
-        className={`${sora.variable}${source.variable} ${space.variable} ${sora.className} antialiased `}
-      >
-        {children}
+    <html lang="en">
+      <body className={`${geistSans.className} $ antialiased`}>
+        <RootProvider>{children}</RootProvider>
       </body>
     </html>
   );
