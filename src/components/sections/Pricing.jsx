@@ -89,28 +89,8 @@ export default function Pricing() {
     };
   }, []);
   return (
-    <div className="max-w-7xl mx-auto my-20 flex flex-col gap-5 relative pricing-section py-20">
+    <div className="max-w-7xl mx-auto my-20 flex flex-col gap-5 relative pricing-section py-20 overflow-hidden">
       {/* Cursor follower */}
-      <motion.div
-        className="absolute top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference"
-        style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
-          backgroundColor: "rgba(7, 243, 176, 0.5)",
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.5, 0.8, 0.5],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-      />
-
-      <div className="absolute w-[47.62px] h-[1015.04px] lg:-top-1/4 -top-1/2 z-10 lg:right-1/4 opacity-[0.5] rotate-[53.12deg] bg-[rgba(7,243,176,1)] blur-[80px]" />
-      <div className="absolute w-[244px] h-[340px] bottom-0 left-[-67px] opacity-[0.3] bg-[#FDF8B3] blur-[129.7px]"></div>
 
       <motion.h2
         className="lg:text-6xl text-5xl leading-[55px] font-bold text-center lg:leading-[80px] tracking-wide gr1 text-transparent"

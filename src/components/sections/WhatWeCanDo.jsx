@@ -22,38 +22,44 @@ const data = [
     image: "/images/13.jpg",
   },
 ];
-
 export default function WhatWeCanDo() {
-  const [activeStep, setActiveStep] = useState(0); // Track active step
-  const [progress, setProgress] = useState(0); // Track progress bar
+  const [activeStep, setActiveStep] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [cycleCompleted, setCycleCompleted] = useState(false);
   const ref = useRef(null);
-  const isInView = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-    rootMargin: "0px 0px -10% 0px",
+  const isInView = useInView(ref, {
+    once: false,
+    margin: "-10% 0px -10% 0px",
   });
-  console.log(isInView);
 
-  // Set up automatic step change every 5 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress(0); // Reset progress on new step
-      setActiveStep((prevStep) => (prevStep + 1) % data.length); // Change step
-    }, 5000); // Change step every 5 seconds
+    let interval;
+    if (isInView) {
+      interval = setInterval(() => {
+        setProgress(0);
+        setActiveStep((prevStep) => {
+          const nextStep = (prevStep + 1) % data.length;
+          if (nextStep === 0) {
+            setCycleCompleted(true);
+          }
+          return nextStep;
+        });
+      }, 5000);
+    }
+    return () => clearInterval(interval);
+  }, [isInView]);
 
-    return () => clearInterval(interval); // Clean up interval on unmount
-  }, []);
-
-  // Set up progress bar animation for each step
   useEffect(() => {
-    const progressInterval = setInterval(() => {
-      setProgress((prevProgress) =>
-        prevProgress < 100 ? prevProgress + 1 : 100
-      );
-    }, 50); // Update every 50ms to make the progress bar smooth
-
-    return () => clearInterval(progressInterval); // Clean up interval on unmount
-  }, [activeStep]);
+    let progressInterval;
+    if (isInView) {
+      progressInterval = setInterval(() => {
+        setProgress((prevProgress) =>
+          prevProgress >= 100 ? 0 : prevProgress + (100 / 5000) * 50
+        );
+      }, 50);
+    }
+    return () => clearInterval(progressInterval);
+  }, [activeStep, isInView]);
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -82,9 +88,8 @@ export default function WhatWeCanDo() {
         className="px-5 rounded-lg py-12 relative bg-gradient-to-br from-[#2C3027] to-[#0A0B0A]"
         variants={containerVariants}
         initial="hidden"
-        // animate={isInView ? "visible" : "hidden"}
         whileInView="visible"
-        // animate="visible"
+        viewport={{ once: true, amount: 0.3 }}
       >
         {/* Border Gradient */}
         <div className="absolute inset-0 border border-white/20 rounded-lg grad-b1" />
@@ -120,23 +125,26 @@ export default function WhatWeCanDo() {
 
         {/* Steps Section */}
         <motion.div
-          className="flex flex-wrap items-start justify-between gap-8 p-8 pt-14 relative ,max-lg:overflow-hidden"
+          className="flex flex-wrap items-start justify-between gap-8 p-8 pt-14 relative"
           variants={itemVariants}
         >
           {data.map((item, idx) => (
             <motion.div
-              key={idx}
-              className={`text-left lg:w-1/4 flex flex-col gap-4 relative  ${idx != activeStep && "hidden lg:flex"}`}
+              key={`${item.title}-idx`}
+              className={`text-left lg:w-1/4 flex flex-col gap-4 relative ${
+                !cycleCompleted && idx !== activeStep ? "hidden lg:flex" : ""
+              }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
             >
               <motion.div
-                className={`h-0.5 -mb-[18px] bg-white`}
+                className="h-0.5 -mb-[18px] bg-white"
                 initial={{ width: "0%" }}
                 animate={{ width: idx === activeStep ? `${progress}%` : "0%" }}
-                transition={{ duration: 5 }}
+                transition={{ duration: 0.5 }}
               />
+
               {/* Step Divider Line */}
               <motion.div
                 className={`w-full h-0.5 ${
@@ -158,7 +166,7 @@ export default function WhatWeCanDo() {
               </motion.p>
               {/* Step Title and Description */}
               <AnimatePresence mode="wait">
-                {idx === activeStep && (
+                {(cycleCompleted || idx === activeStep) && (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 10 }}
@@ -180,8 +188,13 @@ export default function WhatWeCanDo() {
           <motion.div
             className="absolute w-[166px] h-[212px] -top-20 opacity-80 bg-green-500 blur-[170px]"
             animate={{
-              left:
-                activeStep === 0 ? "85px" : activeStep === 1 ? "40%" : "85%",
+              left: cycleCompleted
+                ? "50%"
+                : activeStep === 0
+                  ? "85px"
+                  : activeStep === 1
+                    ? "40%"
+                    : "85%",
             }}
             transition={{ duration: 0.5 }}
           />

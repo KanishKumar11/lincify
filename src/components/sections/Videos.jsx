@@ -20,23 +20,21 @@ export default function Videos() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Combined interval for step and progress
     const interval = setInterval(() => {
-      setProgress(0);
-      setActiveStep((prevStep) => (prevStep + 1) % data.length);
+      setProgress(0); // Reset progress
+      setActiveStep((prevStep) => (prevStep + 1) % data.length); // Go to next step
     }, 5000);
 
-    return () => clearInterval(interval);
+    const progressUpdater = setInterval(() => {
+      setProgress((prev) => (prev < 100 ? prev + 2 : 100));
+    }, 100); // Update progress smoothly
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(progressUpdater);
+    };
   }, []);
-
-  useEffect(() => {
-    const progressInterval = setInterval(() => {
-      setProgress((prevProgress) =>
-        prevProgress < 100 ? prevProgress + 1 : 100
-      );
-    }, 50);
-
-    return () => clearInterval(progressInterval);
-  }, [activeStep]);
 
   return (
     <motion.div
@@ -82,11 +80,15 @@ export default function Videos() {
               <motion.div
                 className="h-0.5 -mb-[18px] bg-white"
                 initial={{ width: "0%" }}
-                animate={{ width: idx === activeStep ? `${progress}%` : "0%" }}
-                transition={{ duration: 5 }}
+                animate={{
+                  width: idx === activeStep ? `${progress}%` : "0%",
+                }}
+                transition={{ duration: 0.1, ease: "linear" }}
               />
               <div
-                className={`w-full h-0.5 ${idx <= activeStep ? "bg-white" : "bg-white/30"}`}
+                className={`w-full h-0.5 ${
+                  idx < activeStep ? "bg-white" : "bg-white/30"
+                }`}
               />
               <motion.div
                 initial={{ opacity: 0 }}

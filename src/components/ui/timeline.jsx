@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Check } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { VelocityScroll } from "./scroll-based-velocity";
 
 const brands = ["/images/10.svg", "/images/11.svg", "/images/12.svg"];
 
@@ -80,16 +81,21 @@ export const Timeline = ({ data }) => {
       />
 
       <motion.div
-        className="sticky top-0 w-full text-center z-10 py-10"
+        className="sticky top-4 w-full text-center z-10 pb-10"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2
+        {/* <h2
           className={`font-semibold ${isMobile ? "text-4xl" : "lg:text-7xl text-5xl"} bg-gradient-to-r from-[#2B9E70] from-[30%] via-white to-[#2B9E70] bg-clip-text text-transparent`}
         >
           *Services tailored for everyone.*
-        </h2>
+        </h2> */}
+        <VelocityScroll
+          text="*Services tailored for everyone. "
+          default_velocity={4}
+          className={`font-semibold ${isMobile ? "text-4xl" : "lg:text-7xl text-5xl"} bg-gradient-to-r from-[#2B9E70] from-[30%] via-white to-[#2B9E70] bg-clip-text text-transparent`}
+        />
       </motion.div>
 
       <div
@@ -223,10 +229,13 @@ export const Timeline = ({ data }) => {
         </div>
       </div>
       <motion.div
-        className="absolute bottom-0 py-10 bg-[rgba(19,19,19,1)] z-30 w-full flex flex-row flex-wrap gap-4 items-center justify-between"
+        className="absolute -bottom-10 xl:bottom-0 py-8 bg-[rgba(19,19,19,1)] z-30 w-full flex flex-row flex-wrap gap-4 items-center justify-between brands-section"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
+        style={{
+          minHeight: "100px", // Reserve height
+        }}
       >
         {brands.map((brand, idx) => (
           <motion.div
@@ -239,7 +248,7 @@ export const Timeline = ({ data }) => {
               alt=""
               height={100}
               width={300}
-              className="h-[25px] max-lg:w-full "
+              className="h-[25px] max-lg:w-full"
             />
           </motion.div>
         ))}

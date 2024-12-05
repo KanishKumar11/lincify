@@ -9,8 +9,9 @@ import Talk from "@/components/sections/Talk";
 import Testimonials from "@/components/sections/Testimonials";
 import Videos from "@/components/sections/Videos";
 import WhatWeCanDo from "@/components/sections/WhatWeCanDo";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import React from "react";
+import React, { useEffect } from "react";
 const IMAGE_URLS = [
   "/images/4.jpg",
   "/images/5.jpg",
@@ -69,6 +70,33 @@ export const timelineData = [
 ];
 
 export default function HomePage() {
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+
+  const springConfig = { damping: 25, stiffness: 700 };
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
+
+  useEffect(() => {
+    const moveCursor = (e) => {
+      // Get the bounding rectangle of the pricing section
+      const pricingSection = document.querySelector(".pricing-section");
+      if (pricingSection) {
+        const rect = pricingSection.getBoundingClientRect();
+
+        // Calculate cursor position relative to the section
+        cursorX.set(e.clientX - rect.left);
+        cursorY.set(e.clientY - rect.top);
+      }
+    };
+
+    window.addEventListener("mousemove", moveCursor);
+
+    return () => {
+      window.removeEventListener("mousemove", moveCursor);
+    };
+  }, []);
+
   return (
     <div className="relative bg-black  scroll-snap-y snap-mandatory ">
       <div
@@ -95,7 +123,7 @@ export default function HomePage() {
       />
 
       <div
-        className="absolute w-[166px] h-[212px] top-[356px] left-[60%] lg:left-[1147px]"
+        className="absolute w-[166px] h-[212px] top-[356px] left-[60%] lg:right-0"
         style={{
           background:
             "linear-gradient(135deg, rgba(62,173,89,0.8), rgba(62,173,89,0.5))",
@@ -141,7 +169,29 @@ export default function HomePage() {
       {/* <RotatingSemiCircle /> */}
       <Videos />
       <Services />
-      <Pricing />
+      <div className="relative">
+        <div className="absolute w-[244px] h-[340px] bottom-0 left-[-67px] opacity-[0.3] bg-[#FDF8B3] blur-[129.7px]"></div>
+        <motion.div
+          className="absolute top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-50 mix-blend-difference blur-[10px]"
+          style={{
+            x: cursorXSpring,
+            y: cursorYSpring,
+            backgroundColor: "rgba(7, 243, 176, 0.5)",
+          }}
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 0.8, 0.5],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        />
+
+        <div className="absolute w-[47.62px] h-[1015.04px] lg:-top-1/4 -top-1/2 z-10 right-1/4 opacity-[0.5] rotate-[53.12deg] bg-[rgba(7,243,176,1)] blur-[80px]" />
+        <Pricing />
+      </div>
       <Testimonials />
       <Talk />
       <Footer />

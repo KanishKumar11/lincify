@@ -108,7 +108,7 @@ export default function Footer() {
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
                   <motion.a
-                    href="#"
+                    href="/privacy-policy"
                     className="hover:underline"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -118,12 +118,22 @@ export default function Footer() {
                 </li>
                 <li>
                   <motion.a
-                    href="#"
+                    href="/terms-and-conditions"
                     className="hover:underline"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     Terms &amp; Conditions
+                  </motion.a>
+                </li>
+                <li>
+                  <motion.a
+                    href="/refund-and-cancellation"
+                    className="hover:underline"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Refund and Cancellation
                   </motion.a>
                 </li>
               </ul>

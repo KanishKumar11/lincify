@@ -126,3 +126,13 @@ body {
 .grn {
   background: linear-gradient(110.12deg, #2c3027 -80.38%, #0a0b0a 83.54%);
 }
+/* Hide scrollbar for Chrome, Safari, and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
