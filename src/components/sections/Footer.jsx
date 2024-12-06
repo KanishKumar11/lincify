@@ -116,7 +116,7 @@ export default function Footer() {
                     Privacy Policy
                   </motion.a>
                 </li>
-                <li>
+                <li className="mb-4">
                   <motion.a
                     href="/terms-and-conditions"
                     className="hover:underline"

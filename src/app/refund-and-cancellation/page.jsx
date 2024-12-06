@@ -48,7 +48,7 @@ export default function RefundAndCancellation() {
           {
             title: "2. Refund Policy",
             content: [
-              "We offer a 14-day money-back guarantee for our subscription-based services. If you are not satisfied with our services within 14 days of purchase, you may request a full refund.",
+              "We offer a 7-day money-back guarantee for our subscription-based services. If you are not satisfied with our services within 7 days of purchase, you may request a full refund.",
               "For project-based services, refunds will be handled on a case-by-case basis, depending on the amount of work completed and resources allocated.",
             ],
           },
