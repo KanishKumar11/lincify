@@ -61,33 +61,6 @@ const pricingData = {
 };
 export default function Pricing() {
   const [active, setActive] = useState("Personal Branding");
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-
-  const springConfig = { damping: 25, stiffness: 700 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
-
-  useEffect(() => {
-    const moveCursor = (e) => {
-      // Get the bounding rectangle of the pricing section
-      const pricingSection = document.querySelector(".pricing-section");
-      if (pricingSection) {
-        const rect = pricingSection.getBoundingClientRect();
-
-        // Calculate cursor position relative to the section
-        cursorX.set(e.clientX - rect.left);
-        cursorY.set(e.clientY - rect.top);
-      }
-    };
-
-    window.addEventListener("mousemove", moveCursor);
-
-    return () => {
-      window.removeEventListener("mousemove", moveCursor);
-    };
-  }, []);
   return (
     <div className="max-w-7xl mx-auto my-20 flex flex-col gap-5 relative pricing-section py-20 overflow-hidden">
       {/* Cursor follower */}

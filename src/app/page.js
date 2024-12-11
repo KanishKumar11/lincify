@@ -169,13 +169,13 @@ export default function HomePage() {
       {/* <RotatingSemiCircle /> */}
       <Videos />
       <Services />
-      <div className="relative">
+      <div className="relative overflow-x-hidden">
         <div className="absolute w-[244px] h-[340px] bottom-0 left-[-67px] opacity-[0.3] bg-[#FDF8B3] blur-[129.7px]"></div>
         <motion.div
           className="absolute top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-50 mix-blend-difference blur-[10px]"
           style={{
-            x: cursorXSpring,
-            y: cursorYSpring,
+            x: cursorX + 20,
+            y: cursorY,
             backgroundColor: "rgba(7, 243, 176, 0.5)",
           }}
           animate={{
@@ -189,7 +189,7 @@ export default function HomePage() {
           }}
         />
 
-        <div className="absolute w-[47.62px] h-[1015.04px] lg:-top-1/4 -top-1/2 z-10 right-1/4 opacity-[0.5] rotate-[53.12deg] bg-[rgba(7,243,176,1)] blur-[80px]" />
+        <div className="absolute w-[47.62px] h-full lg:h-[1015.04px] lg:-top-1/4 -top-1/2 z-10 right-1/4 opacity-[0.5] rotate-[53.12deg] bg-[rgba(7,243,176,1)] blur-[80px]" />
         <Pricing />
       </div>
       <Testimonials />
