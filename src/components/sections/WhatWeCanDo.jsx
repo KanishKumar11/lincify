@@ -83,7 +83,11 @@ export default function WhatWeCanDo() {
   };
 
   return (
-    <div className="max-w-7xl p-5 snap-start mx-auto min-h-screen" ref={ref}>
+    <div
+      className="max-w-7xl p-5 snap-start mx-auto min-h-screen"
+      ref={ref}
+      id="about"
+    >
       <motion.div
         className="px-5 rounded-lg py-12 relative bg-gradient-to-br from-[#2C3027] to-[#0A0B0A]"
         variants={containerVariants}

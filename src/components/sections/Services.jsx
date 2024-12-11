@@ -22,7 +22,10 @@ export const timelineData = [
 
 export default function Services() {
   return (
-    <div className="lg:max-w-7xl relative mx-auto mb-20 max-w-[100vw] ">
+    <div
+      className="lg:max-w-7xl relative mx-auto mb-20 max-w-[100vw] "
+      id="services"
+    >
       {" "}
       <Timeline data={timelineData} />
     </div>

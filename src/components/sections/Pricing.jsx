@@ -62,7 +62,10 @@ const pricingData = {
 export default function Pricing() {
   const [active, setActive] = useState("Personal Branding");
   return (
-    <div className="max-w-7xl mx-auto my-20 flex flex-col gap-5 relative pricing-section py-20 overflow-hidden">
+    <div
+      className="max-w-7xl mx-auto my-20 flex flex-col gap-5 relative pricing-section py-20 overflow-hidden"
+      id="pricing"
+    >
       {/* Cursor follower */}
 
       <motion.h2

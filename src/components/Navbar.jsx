@@ -16,7 +16,24 @@ import Logo from "./Logo";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = ["About", "Services", "Pricing", "FAQs", "Contact"];
+  const menuItems = [
+    {
+      name: "About",
+      link: "/#about",
+    },
+    {
+      name: "Services",
+      link: "/#services",
+    },
+    {
+      name: "Pricing",
+      link: "/#pricing",
+    },
+    {
+      name: "Contact",
+      link: "/contact",
+    },
+  ];
 
   return (
     <NavbarContainer
@@ -41,8 +58,8 @@ export default function Navbar() {
       >
         {menuItems.map((item, index) => (
           <NavbarItem key={item - index}>
-            <Link color="foreground" href="#">
-              {item}
+            <Link color="foreground" href={item.link}>
+              {item.name}
             </Link>
           </NavbarItem>
         ))}
@@ -76,10 +93,10 @@ export default function Navbar() {
                     : "foreground"
               }
               className="w-full"
-              href="#"
+              href={item.link}
               size="lg"
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}
