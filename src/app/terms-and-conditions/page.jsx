@@ -101,7 +101,7 @@ export default function TermsAndConditions() {
             title: "8. Contact Information",
             content: [
               "For any questions regarding these Terms and Conditions, please contact us at:",
-              "Email: Lincifymedia@gmail.com",
+              "Email: support@lincifymedia.com",
               "Phone: +919266866692",
             ],
           },

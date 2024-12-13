@@ -21,14 +21,14 @@ import { toast } from "sonner";
 
 // Replace this with your actual email sending function
 const sendEmail = async (data) => {
-  const response = await fetch("/api/send-email", {
+  const response = await fetch("/api/sendEmail", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   });
-
+  console.log(response);
   if (!response.ok) {
     const errorData = await response.json();
     throw new Error(errorData.message || "Failed to send email");
@@ -107,7 +107,8 @@ export default function ContactPage() {
     startTransition(true);
     try {
       const res = await sendEmail(forms);
-      if (res.success) {
+      console.log(res);
+      if (res.message) {
         toast.success(
           "We will keep in touch with you with the speed of light :)"
         );
@@ -312,7 +313,7 @@ export default function ContactPage() {
                       </h5>
                     </a>
                     <a
-                      href="mailto:Contact@lincifymedia.com"
+                      href="mailto:support@lincifymedia.com"
                       class="flex items-center mb-6"
                     >
                       <svg
@@ -330,7 +331,7 @@ export default function ContactPage() {
                         ></path>
                       </svg>
                       <h5 class="text-slate-50 text-base font-normal leading-6 ml-5">
-                        Contact@lincifymedia.com
+                        support@lincifymedia.com
                       </h5>
                     </a>
                     <a href="javascript:;" class="flex items-center mb-6">
@@ -353,7 +354,8 @@ export default function ContactPage() {
                         ></path>
                       </svg>
                       <h5 class="text-slate-50 text-base font-normal leading-6 ml-5">
-                        Migsun, Eta 2, Greater Noida.
+                        LINCIFY MEDIA PRIVATE LIMITED, Migsun, Eta 2, Greater
+                        Noida.
                       </h5>
                     </a>
                     <div class="flex items-center justify-center border-t border-gray-100 pt-6">

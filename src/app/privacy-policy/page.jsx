@@ -111,7 +111,7 @@ export default function PrivacyPolicy() {
             title: "8. Contact Information",
             content: [
               "If you have any questions or concerns about this Privacy Policy, please contact us at:",
-              "Email: Lincifymedia@gmail.com",
+              "Email: support@lincifymedia.com",
               "Phone: +919266866692",
             ],
           },

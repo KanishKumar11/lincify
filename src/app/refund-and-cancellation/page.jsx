@@ -55,7 +55,7 @@ export default function RefundAndCancellation() {
           {
             title: "3. Refund Process",
             content: [
-              "To request a refund, please contact us within the specified refund period. Refund requests should be sent to Lincifymedia@gmail.com.",
+              "To request a refund, please contact us within the specified refund period. Refund requests should be sent to support@lincifymedia.com.",
               "Please provide your order number and a brief explanation of why you're requesting a refund.",
               "Refunds will be processed within 5-10 business days and will be issued using the original payment method.",
             ],
@@ -97,7 +97,7 @@ export default function RefundAndCancellation() {
             title: "8. Contact Information",
             content: [
               "If you have any questions about this Refund and Cancellation Policy, please contact us at:",
-              "Email: Lincifymedia@gmail.com",
+              "Email: support@lincifymedia.com",
               "Phone: +919266866692",
             ],
           },
