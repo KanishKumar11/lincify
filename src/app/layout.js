@@ -26,14 +26,14 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.lincify.in/",
-    site_name: "Lincify",
+    url: "https://www.lincifymedia.com/",
+    site_name: "Lincify Media",
     title: "Transform Your Business with Powerful Content Strategies | Lincify",
     description:
       "At Lincify, we help businesses grow through impactful content strategies that drive engagement and results.",
     images: [
       {
-        url: "https://www.lincify.in/logo.png",
+        url: "https://www.lincifymedia.com/meta.png",
         width: 1200,
         height: 630,
         alt: "Lincify - Empowering Business Growth",
@@ -47,7 +47,7 @@ export const metadata = {
     title: "Transform Your Business with Powerful Content Strategies | Lincify",
     description:
       "At Lincify, we help businesses grow through impactful content strategies that drive engagement and results.",
-    images: ["https://www.lincify.in/logo.png"], // Add a relevant image URL for Twitter
+    images: ["https://www.lincifymedia.com/meta.png"], // Add a relevant image URL for Twitter
   },
   icons: {
     icon: "/favicon.ico",
