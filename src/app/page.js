@@ -1,16 +1,24 @@
 "use client";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/sections/Footer";
-import Hero from "@/components/sections/Hero";
-import Pricing from "@/components/sections/Pricing";
-import Services from "@/components/sections/Services";
-import Talk from "@/components/sections/Talk";
-import Testimonials from "@/components/sections/Testimonials";
-import Videos from "@/components/sections/Videos";
-import WhatWeCanDo from "@/components/sections/WhatWeCanDo";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import React, { useEffect, Suspense } from "react";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import React, { useEffect } from "react";
+
+// Dynamically Import Components
+const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: false });
+const Footer = dynamic(() => import("@/components/sections/Footer"), {
+  ssr: false,
+});
+const Hero = dynamic(() => import("@/components/sections/Hero"));
+const Pricing = dynamic(() => import("@/components/sections/Pricing"));
+const Services = dynamic(() => import("@/components/sections/Services"));
+const Talk = dynamic(() => import("@/components/sections/Talk"));
+const Testimonials = dynamic(
+  () => import("@/components/sections/Testimonials")
+);
+const Videos = dynamic(() => import("@/components/sections/Videos"));
+const WhatWeCanDo = dynamic(() => import("@/components/sections/WhatWeCanDo"));
 
 const IMAGE_URLS = [
   "/images/4.jpg",
@@ -25,23 +33,20 @@ const IMAGE_URLS = [
 export default function HomePage() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-
   const springConfig = { damping: 25, stiffness: 700 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
     const moveCursor = (e) => {
-      cursorX.set(e.clientX); // Global X position
-      cursorY.set(e.clientY); // Global Y position
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
     };
-
     window.addEventListener("mousemove", moveCursor);
-
     return () => {
       window.removeEventListener("mousemove", moveCursor);
     };
-  }, []);
+  }, [cursorX, cursorY]);
 
   return (
     <div className="relative bg-black scroll-snap-y snap-mandatory">
@@ -76,7 +81,6 @@ export default function HomePage() {
           animation: "gradientAnimation 15s ease infinite",
         }}
       />
-
       <div
         className="absolute w-[292px] h-[550px] lg:top-[46px] top-1/2 lg:left-[500px]"
         style={{
@@ -91,21 +95,40 @@ export default function HomePage() {
 
       {/* Page Sections */}
       <div className="min-h-screen snap-start h-screen">
-        <Navbar />
-        <Hero />
+        <Suspense>
+          <Navbar />
+        </Suspense>
+        <Suspense>
+          <Hero />
+        </Suspense>
       </div>
-      <WhatWeCanDo />
-      <InfiniteMovingCards items={IMAGE_URLS} />
-      {/* <RotatingSemiCircle /> */}
-      <Videos />
-      <Services />
+      <Suspense>
+        <WhatWeCanDo />
+      </Suspense>
+      <Suspense>
+        <InfiniteMovingCards items={IMAGE_URLS} />
+      </Suspense>
+      <Suspense fallback={<div>Loading Videos...</div>}>
+        <Videos />
+      </Suspense>
+      <Suspense fallback={<div>Loading Services...</div>}>
+        <Services />
+      </Suspense>
       <div className="relative overflow-x-hidden">
         <div className="absolute w-[47.62px] h-full lg:h-[1015.04px] lg:-top-1/4 -top-1/2 z-10 right-1/4 opacity-[0.5] rotate-[53.12deg] bg-[rgba(7,243,176,1)] blur-[80px]" />
-        <Pricing />
+        <Suspense fallback={<div>Loading Pricing...</div>}>
+          <Pricing />
+        </Suspense>
       </div>
-      <Testimonials />
-      <Talk />
-      <Footer />
+      <Suspense fallback={<div>Loading Testimonials...</div>}>
+        <Testimonials />
+      </Suspense>
+      <Suspense fallback={<div>Loading Talk Section...</div>}>
+        <Talk />
+      </Suspense>
+      <Suspense fallback={<div>Loading Footer...</div>}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
