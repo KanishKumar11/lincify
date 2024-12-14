@@ -16,10 +16,10 @@ export default function RootProvider({ children }) {
         enableSystem
         disableTransitionOnChange
       >
-        <SmoothScrolling>
-          <Toaster position="top-center" />
-          {children}
-        </SmoothScrolling>
+        {/* <SmoothScrolling> */}
+        <Toaster position="top-center" />
+        {children}
+        {/* </SmoothScrolling> */}
       </ThemeProvider>
     </NextUIProvider>
   );

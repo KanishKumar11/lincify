@@ -36,7 +36,7 @@ export default function Footer() {
               <Logo />
             </Link>
           </motion.div>
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 relative z-[999999]">
             <motion.div variants={itemVariants}>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Services
