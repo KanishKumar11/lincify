@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/sections/Footer";
 import Hero from "@/components/sections/Hero";
 import Pricing from "@/components/sections/Pricing";
-import RotatingSemiCircle from "@/components/sections/RotatingSemiCircle";
 import Services from "@/components/sections/Services";
 import Talk from "@/components/sections/Talk";
 import Testimonials from "@/components/sections/Testimonials";
