@@ -1,66 +1,75 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
+import CountrySelector, { countries } from "../CountrySelector";
 
 const tabs = ["Personal Branding", "UGC Branding", "Marketing"];
+
 const pricingData = {
   "Personal Branding": [
     {
       name: "Basic",
-      price: 399,
+      price: { US: 399, IN: 29999, EU: 349, CA: 499 },
       features: ["8:Videos"],
     },
     {
       name: "Pro",
-      price: 999,
+      price: { US: 999, IN: 74999, EU: 849, CA: 1199 },
       features: ["20:Videos", "Reel covers", "Sales Autopilot", "Facebook ADs"],
     },
     {
       name: "Ultimate",
-      price: 1299,
+      price: { US: 1299, IN: 99999, EU: 1149, CA: 1599 },
       features: ["30:Videos", "Reel covers", "Sales Autopilot", "Facebook ADs"],
     },
   ],
   "UGC Branding": [
     {
       name: "Basic",
-      price: 499,
+      price: { US: 499, IN: 39999, EU: 449, CA: 649 },
       features: ["8:Videos"],
     },
     {
       name: "Pro",
-      price: 899,
+      price: { US: 899, IN: 69999, EU: 799, CA: 1099 },
       features: ["20:Videos", "Reel covers", "Sales Autopilot", "Facebook ADs"],
     },
     {
       name: "Ultimate",
-      price: 1299,
+      price: { US: 1299, IN: 99999, EU: 1149, CA: 1599 },
       features: ["30:Videos", "Reel covers", "Sales Autopilot", "Facebook ADs"],
     },
   ],
   Marketing: [
     {
       name: "Basic",
-      price: 409,
+      price: { US: 409, IN: 30999, EU: 359, CA: 559 },
       features: ["8:Videos"],
     },
     {
       name: "Pro",
-      price: 809,
+      price: { US: 809, IN: 60999, EU: 709, CA: 999 },
       features: ["20:Videos", "Reel covers", "Sales Autopilot", "Facebook ADs"],
     },
     {
       name: "Ultimate",
-      price: 1209,
+      price: { US: 1209, IN: 90999, EU: 1049, CA: 1399 },
       features: ["30:Videos", "Reel covers", "Sales Autopilot", "Facebook ADs"],
     },
   ],
 };
+
 export default function Pricing() {
   const [active, setActive] = useState("Personal Branding");
+  const [selectedCountry, setSelectedCountry] = useState("US");
+
+  const handleCountryChange = (countryCode) => {
+    setSelectedCountry(countryCode);
+  };
+
   return (
     <div
       className="max-w-7xl mx-auto my-20 flex flex-col gap-5 relative pricing-section py-20 overflow-hidden"
@@ -86,6 +95,19 @@ export default function Pricing() {
       >
         Discover plans designed to fit your brand&#39;s unique content needs.
       </motion.p>
+
+      <motion.div
+        className="flex justify-center mt-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <CountrySelector
+          selectedCountry={selectedCountry}
+          onSelectCountry={handleCountryChange}
+        />
+      </motion.div>
+
       <motion.div
         className="flex flex-wrap flex-row overflow-hidden max-w-[100vw] justify-center gap-5 bg-[rgba(217,217,217,0.1)] rounded-[13px] w-max mx-auto mt-8"
         initial={{ opacity: 0, y: 20 }}
@@ -108,6 +130,7 @@ export default function Pricing() {
           </motion.div>
         ))}
       </motion.div>
+
       <motion.div
         className="flex items-center mt-10 h-max"
         initial={{ opacity: 0, y: 20 }}
@@ -130,7 +153,7 @@ export default function Pricing() {
                 <motion.div
                   className={cn(
                     "rounded-md p-[2px]",
-                    plan.name == "Pro"
+                    plan.name === "Pro"
                       ? "bg-white"
                       : "bg-gradient-to-r from-green-500 to-green-900"
                   )}
@@ -140,10 +163,15 @@ export default function Pricing() {
                   <Button
                     className={cn(
                       "font-bold text-[13px] px-12 py-3 w-full h-full text-white bg-transparent border-none rounded-md",
-                      plan.name == "Pro" ? "text-black bg-white" : "grn"
+                      plan.name === "Pro" ? "text-black bg-white" : "grn"
                     )}
                   >
-                    Buy for {plan.price}$
+                    Buy for {plan.price[selectedCountry]}{" "}
+                    {
+                      countries.find(
+                        (country) => country.code === selectedCountry
+                      ).currency
+                    }
                   </Button>
                 </motion.div>
 
@@ -167,7 +195,7 @@ export default function Pricing() {
               <div
                 className={cn(
                   "w-0.5 h-full top-[3135px] left-[549px] border-t border-transparent border-opacity-50 bg-gradient-to-b mx-20 from-transparent via-white to-transparent lg:block hidden",
-                  i == 2 && "lg:hidden"
+                  i === 2 && "lg:hidden"
                 )}
               />
             </motion.div>
