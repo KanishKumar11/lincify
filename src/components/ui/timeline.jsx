@@ -108,7 +108,7 @@ export const Timeline = ({ data }) => {
             className={`absolute ${isMobile ? "w-[60%] h-[1px]" : "right-60 w-[1px] h-[50%]"} bg-neutral-200 top-28 dark:bg-neutral-700`}
           >
             <motion.div
-              className={`absolute ${isMobile ? "top-[0px] -mt-2 w-[16px] h-[16px]" : "right-[-8px] w-[16px] h-[16px]"} bg-purple-500 rounded-full`}
+              className={`absolute ${isMobile ? "top-[0px] -mt-2 w-[16px] h-[16px]" : "right-[-8px] w-[16px] h-[16px]"} bg-neutral-200 rounded-full`}
               animate={{
                 [isMobile ? "left" : "top"]:
                   `${(activeIndex / (data.length - 1)) * 100}%`,
@@ -118,14 +118,14 @@ export const Timeline = ({ data }) => {
           </div>
 
           <div
-            className={`space-y-0 pt-10 relative ${isMobile ? "flex space-x-2 justify-between  w-[80%]" : "h-[45%] mt-32"}`}
+            className={`space-y-0 pt-10 relative ${isMobile ? "flex space-x-2 justify-between  w-[80%] " : "h-[45%] mt-32"}`}
           >
             {data.map((item, index) => (
               <motion.div
                 key={index}
-                className={`${isMobile ? " flex flex-row justify-between w-full " : "text-right pr-10"} ${
+                className={`${isMobile ? "  flex-row justify-between w-full " : "text-right pr-10"} ${
                   activeIndex === index
-                    ? " text-purple-500"
+                    ? " text-neutral-200"
                     : "text-neutral-700 dark:text-neutral-400  "
                 }`}
                 style={{
@@ -135,6 +135,11 @@ export const Timeline = ({ data }) => {
                     : `${(index / (data.length - 1)) * 100}%`,
                   left: isMobile ? "" : "",
                   transform: isMobile ? "none" : "translateY(-50%)",
+                  visibility: isMobile
+                    ? index == activeIndex
+                      ? "visible"
+                      : "hidden"
+                    : "visible",
                 }}
                 animate={{
                   scale: activeIndex === index ? 1.1 : 1,
@@ -149,7 +154,7 @@ export const Timeline = ({ data }) => {
                       "text-lg w-max font-bold ",
                       isMobile &&
                         index == 1 &&
-                        "absolute top-20 left-1/2 -translate-x-1/2"
+                        "absolute  left-1/2 -translate-x-1/2"
                     )}
                   >
                     {item.title}

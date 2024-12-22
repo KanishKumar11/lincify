@@ -192,13 +192,8 @@ export default function WhatWeCanDo() {
           <motion.div
             className="absolute w-[166px] h-[212px] -top-20 opacity-80 bg-green-500 blur-[170px]"
             animate={{
-              left: cycleCompleted
-                ? "50%"
-                : activeStep === 0
-                  ? "85px"
-                  : activeStep === 1
-                    ? "40%"
-                    : "85%",
+              left:
+                activeStep === 0 ? "85px" : activeStep === 1 ? "40%" : "85%",
             }}
             transition={{ duration: 0.5 }}
           />

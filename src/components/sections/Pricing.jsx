@@ -150,7 +150,7 @@ export default function Pricing() {
                 <h3 className="text-3xl font-bold z-10 relative">
                   {plan.name}
                 </h3>
-                <motion.div
+                {/* <motion.div
                   className={cn(
                     "rounded-md p-[2px]",
                     plan.name === "Pro"
@@ -159,8 +159,8 @@ export default function Pricing() {
                   )}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                >
-                  <Button
+                > */}
+                {/* <Button
                     className={cn(
                       "font-bold text-[13px] px-12 py-3 w-full h-full text-white bg-transparent border-none rounded-md",
                       plan.name === "Pro" ? "text-black bg-white" : "grn"
@@ -172,9 +172,34 @@ export default function Pricing() {
                         (country) => country.code === selectedCountry
                       ).currency
                     }
-                  </Button>
-                </motion.div>
+                  </Button> */}
 
+                {/* </motion.div> */}
+                <button className="uiverse">
+                  <div className="wrapper">
+                    <span>
+                      {" "}
+                      Buy for {plan.price[selectedCountry]}{" "}
+                      {
+                        countries.find(
+                          (country) => country.code === selectedCountry
+                        ).currency
+                      }
+                    </span>
+                    <div className="circle circle-12"></div>
+                    <div className="circle circle-11"></div>
+                    <div className="circle circle-10"></div>
+                    <div className="circle circle-9"></div>
+                    <div className="circle circle-8"></div>
+                    <div className="circle circle-7"></div>
+                    <div className="circle circle-6"></div>
+                    <div className="circle circle-5"></div>
+                    <div className="circle circle-4"></div>
+                    <div className="circle circle-3"></div>
+                    <div className="circle circle-2"></div>
+                    <div className="circle circle-1"></div>
+                  </div>
+                </button>
                 <ul className="space-y-4 z-10 relative">
                   {plan.features.map((point, i) => (
                     <motion.li

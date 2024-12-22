@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const data = [
   {
@@ -102,11 +103,13 @@ export default function Videos() {
           ))}
         </AnimatePresence>
 
-        <motion.div
-          className="absolute w-[166px] h-[212px] -top-20 opacity-80 bg-green-500 blur-[170px]"
-          animate={{
-            left: activeStep === 0 ? "85px" : "40%",
-          }}
+        <div
+          className={cn(
+            "absolute w-[166px] h-[212px] -top-20 opacity-60 rounded-full bg-green-500 blur-[140px] bg-cover left-[40%]"
+          )}
+          // animate={{
+          //   left: activeStep === 0 ? "85px" : "40%",
+          // }}
           transition={{ duration: 0.5 }}
         />
       </div>
