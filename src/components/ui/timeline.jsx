@@ -234,13 +234,10 @@ export const Timeline = ({ data }) => {
         </div>
       </div>
       <motion.div
-        className="absolute -bottom-10 xl:bottom-0 py-8 bg-[rgba(19,19,19,1)] z-30 w-full flex flex-row flex-wrap gap-4 items-center justify-between brands-section"
+        className="absolute -bottom-12 xl:bottom-0 lg:py-8 py-4 rounded-2xl   bg-[rgba(19,19,19,1)] z-30 w-full flex flex-row flex-wrap gap-4 items-center justify-between brands-section"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        style={{
-          minHeight: "100px", // Reserve height
-        }}
       >
         {brands.map((brand, idx) => (
           <motion.div
@@ -253,7 +250,7 @@ export const Timeline = ({ data }) => {
               alt=""
               height={100}
               width={300}
-              className="h-[25px] max-lg:w-full"
+              className="h-[18px] max-lg:w-full"
             />
           </motion.div>
         ))}
