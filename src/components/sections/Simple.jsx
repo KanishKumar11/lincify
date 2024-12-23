@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
 export default function Simple() {
@@ -38,21 +39,48 @@ export default function Simple() {
       src: "/images/21.svg",
     },
   ];
+
+  const [active, setActive] = useState(0);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const { top, height } = sectionRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const scrollPosition = -top;
+        const sectionHeight = height - windowHeight;
+
+        const newActive = Math.min(
+          testimonials.length - 1,
+          Math.floor((scrollPosition / sectionHeight) * testimonials.length)
+        );
+
+        setActive(newActive);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [testimonials.length]);
+
   return (
-    <div className="py-20 snap-start">
-      <h2 className="mx-auto text-balance text-6xl text-center max-w-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-white mb-10   bg-gray-600 leading-[70px]">
-        Simple{" "}
-        <span className="relative bg-clip-text bg-gradient-to-b to-emerald-400  to from-emerald-900 underline underline-offset-[10px] w-max inline-block ">
-          5-step process
-          <div className="h-1 w-full bg-emerald-400" />
-        </span>{" "}
-        to make your brand{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-b to-emerald-400  to from-emerald-900 underline underline-offset-2 inline-block relative w-max">
-          Go Big
-          <div className="h-1 w-full bg-emerald-400 " />
-        </span>
-      </h2>
-      <AnimatedTestimonials testimonials={testimonials} />
+    <div ref={sectionRef} className="h-[800vh] relative">
+      <div className="sticky top-0 lg:py-20 snap-start py-5">
+        <h2 className="mx-auto  text-balance text-3xl lg:text-6xl text-center max-w-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-white lg:mb-10   bg-gray-600 lg:leading-[70px] leading-[35px]">
+          Simple{" "}
+          <span className="relative bg-clip-text bg-gradient-to-b to-emerald-400  to from-emerald-900 underline underline-offset-[10px] w-max inline-block ">
+            5-step process
+            <div className="h-1 w-full bg-emerald-400" />
+          </span>{" "}
+          to make your brand{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-b to-emerald-400  to from-emerald-900 underline underline-offset-2 inline-block relative w-max">
+            Go Big
+            <div className="h-1 w-full bg-emerald-400 " />
+          </span>
+        </h2>
+        <AnimatedTestimonials testimonials={testimonials} active={active} />
+      </div>
     </div>
   );
 }
