@@ -14,7 +14,7 @@ const brands = ["/images/10.svg", "/images/11.svg", "/images/12.svg"];
 
 export default function Hero() {
   return (
-    <div className="h-[70%] lg:h-[80%] flex items-center justify-center flex-col gap-12 relative">
+    <div className="h-[75%] lg:h-[80%] flex items-center justify-center flex-col gap-12 relative">
       <BoxReveal boxColor={"rgba(7,243,176,1)"} duration={0.5}>
         <div className="flex gap-2">
           <h2 className="text-[13px]">Effortless content creation for </h2>
@@ -64,7 +64,7 @@ export default function Hero() {
               alt=""
               height={100}
               width={300}
-              className="max-h-[24px] lg:max-h-[28px]  w-max"
+              className="max-h-[18px] sm:max-h-[24px] lg:max-h-[28px]  w-max"
             />
           </motion.div>
         ))}
