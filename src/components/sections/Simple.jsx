@@ -66,8 +66,8 @@ export default function Simple() {
 
   return (
     <div ref={sectionRef} className="h-[800vh] relative">
-      <div className="sticky top-0 lg:py-20 snap-start py-8">
-        <h2 className="mx-auto  text-balance text-3xl lg:text-6xl text-center max-w-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-white lg:mb-10   bg-gray-600 lg:leading-[70px] leading-[35px]">
+      <div className="sticky top-0 lg:py-20 snap-start py-12">
+        <h2 className="mx-auto  text-balance text-3xl lg:text-6xl text-center max-w-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-b from-white   bg-gray-600 lg:leading-[70px] leading-[35px]">
           Simple{" "}
           <span className="relative bg-clip-text bg-gradient-to-b to-emerald-400  to from-emerald-900 underline underline-offset-[10px] w-max inline-block ">
             5-step process

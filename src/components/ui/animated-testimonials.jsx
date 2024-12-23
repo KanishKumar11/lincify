@@ -13,8 +13,8 @@ export const AnimatedTestimonials = ({ testimonials, active = 1 }) => {
   };
 
   return (
-    <div className="max-w-sm md:max-w-6xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 lg:py-20 py-8">
-      <div className="relative grid grid-cols-1 md:grid-cols-2  lg:gap-20 gap-5 ">
+    <div className="max-w-sm md:max-w-6xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 lg:py-20 py-8 mt-10">
+      <div className="relative grid grid-cols-1 md:grid-cols-2  lg:gap-20 gap- ">
         <div>
           <div className="relative sm:h-80 h-40 w-full">
             <AnimatePresence>
@@ -58,7 +58,7 @@ export const AnimatedTestimonials = ({ testimonials, active = 1 }) => {
                       draggable={false}
                       className="   object-contain object-center  z-10 relative"
                     />
-                    <div className="bg-yellow-300/40 blur-[120px] absolute w-2/3 left-2/3 -translate-x-1/2 h-1/2 z-[2] top-1/2 -translate-y-1/2" />
+                    {/* <div className="bg-yellow-300/40 blur-[120px] absolute w-2/3 left-2/3 -translate-x-1/2 h-1/2 z-[2] top-1/2 -translate-y-1/2" /> */}
                   </div>
                 </motion.div>
               ))}

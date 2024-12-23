@@ -1,7 +1,6 @@
 "use client";
 import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import Simple from "@/components/sections/Simple";
 
 // Dynamically Import Components
@@ -10,7 +9,6 @@ const Footer = dynamic(() => import("@/components/sections/Footer"), {
   ssr: false,
 });
 const Hero = dynamic(() => import("@/components/sections/Hero"));
-const Pricing = dynamic(() => import("@/components/sections/Pricing"));
 const Services = dynamic(() => import("@/components/sections/Services"));
 const Talk = dynamic(() => import("@/components/sections/Talk"));
 const Testimonials = dynamic(
@@ -19,7 +17,7 @@ const Testimonials = dynamic(
 const Videos = dynamic(() => import("@/components/sections/Videos"));
 const WhatWeCanDo = dynamic(() => import("@/components/sections/WhatWeCanDo"));
 
-const IMAGE_URLS = [
+export const IMAGE_URLS = [
   "/images/4.jpg",
   "/images/5.jpg",
   "/images/6.svg",
@@ -33,7 +31,6 @@ export default function HomePage() {
   return (
     <div className="relative bg-black scroll-snap-y snap-mandatory">
       {/* Cursor Effect */}
-
       {/* Gradient Backgrounds */}
       <div className="absolute w-[244px] h-[340px] bottom-0 left-[-67px] opacity-[0.3] bg-[#FDF8B3] blur-[129.7px]" />
       <div
@@ -46,8 +43,8 @@ export default function HomePage() {
           animation: "gradientAnimation 15s ease infinite",
         }}
       />
-      <div
-        className="absolute w-[292px] h-[550px] lg:top-[46px] top-1/2 lg:left-[500px]"
+      {/* <div
+        // className="absolute w-[292px] h-[550px] lg:top-[46px] top-1/2 lg:left-[500px]"
         style={{
           background:
             "linear-gradient(to bottom right, #219B4B, #3EAD59, #9AA34F, #8cc655)",
@@ -56,7 +53,7 @@ export default function HomePage() {
           filter: "blur(50px)",
           animation: "gradientAnimation 15s ease infinite",
         }}
-      />
+      /> */}
 
       {/* Page Sections */}
       <div className="min-h-screen snap-start h-screen">
@@ -71,7 +68,7 @@ export default function HomePage() {
         <WhatWeCanDo />
       </Suspense>
       <Suspense>
-        <InfiniteMovingCards items={IMAGE_URLS} />
+        <div className="-mb-60"></div>
       </Suspense>
       <Suspense fallback={<div>Loading Videos...</div>}>
         <Videos />

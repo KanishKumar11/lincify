@@ -4,6 +4,8 @@ import RootProvider from "@/providers/RootProvider";
 import { Inter } from "next/font/google";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import NextTopLoader from "nextjs-toploader";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const geistSans = Inter({
   weight: ["100", "200", "300", "500", "600", "700", "800", "900"],
@@ -57,8 +59,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en ">
       <body className={`${geistSans.className} $ antialiased`}>
+        <ScrollProgress />
         <RootProvider>{children}</RootProvider>
       </body>
     </html>

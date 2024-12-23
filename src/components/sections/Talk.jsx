@@ -9,7 +9,7 @@ import BookACall from "../BookACall";
 export default function Talk() {
   return (
     <motion.div
-      className="h-screen relative overflow-hidden"
+      className="h-screen relative overflow-hidden mt-20"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -19,11 +19,11 @@ export default function Talk() {
         <VelocityScroll
           text="Let&#39;s talk "
           default_velocity={4}
-          className="font-display text-center text-[100px] font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-[250px] md:leading-[15rem] my-20 z-10 relative"
+          className="font-display text-center text-[130px] font-bold tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:text-[250px] md:leading-[15rem] my-20 z-10 relative"
         />
       </div>
       <motion.div
-        className="my-20 mx-auto flex items-center flex-col justify-center gap-5 relative"
+        className="mt-20 mx-auto flex items-center flex-col justify-center gap-5 relative"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -80,8 +80,8 @@ export default function Talk() {
       </motion.div>
       <motion.div
         initial={{
-          x: "-300px",
-          scale: 2,
+          // x: "-300px",
+          scale: 1.3,
           opacity: 0,
         }}
         whileInView={{
@@ -89,7 +89,7 @@ export default function Talk() {
           scale: 1,
           opacity: 1,
         }}
-        transition={{ duration: 0.5, delay: 0.6 }}
+        transition={{ duration: 2, delay: 0.6, ease: "easeInOut" }}
         className="
            h-60 w-60 lg:h-[500px] lg:w-[500px] rounded-full
           absolute top-0 left-10 z-0 -translate-x-1/2
@@ -99,8 +99,8 @@ export default function Talk() {
       </motion.div>
       <motion.div
         initial={{
-          x: "-300px",
-          scale: 2,
+          // x: "-300px",
+          scale: 1.3,
           opacity: 0,
         }}
         whileInView={{
@@ -108,7 +108,7 @@ export default function Talk() {
           scale: 1,
           opacity: 1,
         }}
-        transition={{ duration: 0.5, delay: 0.6 }}
+        transition={{ duration: 2, delay: 0.6, ease: "easeInOut" }}
         className="
            h-40 w-40 lg:h-80 lg:w-80 rounded-full
           absolute top-40 left-[500px] z-0 -translate-x-1/2

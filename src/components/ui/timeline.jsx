@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check } from "lucide-react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { VelocityScroll } from "./scroll-based-velocity";
-
-const brands = ["/images/10.svg", "/images/11.svg", "/images/12.svg"];
 
 export const Timeline = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -68,7 +65,7 @@ export const Timeline = ({ data }) => {
       }}
     >
       <motion.div
-        className="sticky w-[166px] h-[212px] top-1/2 left-0 ml-auto opacity-50 bg-[#FDF8B3] blur-[128.1px] z-40"
+        className="sticky w-[166px] top-1/2 left-0 ml-auto opacity-50 bg-[#FDF8B3] blur-[128.1px] z-40"
         animate={{
           opacity: [0.3, 0.5, 0.3],
           scale: [1, 1.1, 1],
@@ -94,7 +91,7 @@ export const Timeline = ({ data }) => {
         <VelocityScroll
           text="*Services tailored for everyone. "
           default_velocity={4}
-          className={`font-semibold ${isMobile ? "text-4xl" : "lg:text-7xl text-5xl"} bg-gradient-to-r from-[#2B9E70] from-[30%] via-white to-[#2B9E70] bg-clip-text text-transparent`}
+          className={`font-semibold ${isMobile ? "text-7xl pt-5" : "lg:text-8xl text-5xl"} bg-gradient-to-r from-[#2B9E70] from-[30%] via-white to-[#2B9E70] bg-clip-text text-transparent h-auto`}
         />
       </motion.div>
 
@@ -218,7 +215,7 @@ export const Timeline = ({ data }) => {
                   )
               )}
             </AnimatePresence>
-            <motion.div
+            {/* <motion.div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 bg-gradient-to-r w-2/3 h-2/3 rounded-full z-0 blur-3xl from-gray-700 via-green-900 to-black"
               animate={{
                 scale: [1, 1.1, 1],
@@ -229,32 +226,10 @@ export const Timeline = ({ data }) => {
                 repeat: Infinity,
                 repeatType: "reverse",
               }}
-            />
+            /> */}
           </motion.div>
         </div>
       </div>
-      <motion.div
-        className="absolute -bottom-12 xl:bottom-0 lg:py-8 py-4 rounded-2xl   bg-[rgba(19,19,19,1)] z-30 w-full flex flex-row flex-wrap gap-4 items-center justify-between brands-section"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        {brands.map((brand, idx) => (
-          <motion.div
-            key={idx}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Image
-              src={brand}
-              alt=""
-              height={100}
-              width={300}
-              className="h-[18px] max-lg:w-full"
-            />
-          </motion.div>
-        ))}
-      </motion.div>
     </div>
   );
 };
