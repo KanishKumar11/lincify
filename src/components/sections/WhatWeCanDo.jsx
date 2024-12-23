@@ -190,10 +190,17 @@ export default function WhatWeCanDo() {
 
           {/* Glow Effect */}
           <motion.div
-            className="absolute w-[166px] h-[212px] -top-20 opacity-80 bg-green-500 blur-[170px]"
+            className="absolute w-[166px] h-[212px] -top-20 opacity-80 bg-green-500 blur-[170px] hidden lg:block"
             animate={{
               left:
                 activeStep === 0 ? "85px" : activeStep === 1 ? "40%" : "85%",
+            }}
+            transition={{ duration: 0.5 }}
+          />
+          <motion.div
+            className="absolute w-[166px] h-[212px] -top-20 opacity-80 bg-green-500 blur-[170px] lg:hidden block"
+            animate={{
+              x: "85px",
             }}
             transition={{ duration: 0.5 }}
           />

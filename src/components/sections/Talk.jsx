@@ -9,7 +9,7 @@ import BookACall from "../BookACall";
 export default function Talk() {
   return (
     <motion.div
-      className="h-screen relative "
+      className="h-screen relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}

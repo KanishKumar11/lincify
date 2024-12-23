@@ -13,10 +13,10 @@ export const AnimatedTestimonials = ({ testimonials, active = 1 }) => {
   };
 
   return (
-    <div className="max-w-sm md:max-w-6xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 lg:py-20 py-5">
-      <div className="relative grid grid-cols-1 md:grid-cols-2  lg:gap-20 ">
+    <div className="max-w-sm md:max-w-6xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 lg:py-20 py-8">
+      <div className="relative grid grid-cols-1 md:grid-cols-2  lg:gap-20 gap-5 ">
         <div>
-          <div className="relative h-80 w-full">
+          <div className="relative sm:h-80 h-40 w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -49,7 +49,7 @@ export const AnimatedTestimonials = ({ testimonials, active = 1 }) => {
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <div className="aspect-auto w-[80%] relative overflow-clip bg-black p-10 border rounded-3xl h-auto">
+                  <div className="aspect-auto w-[60%] mx-auto sm:w-[80%] relative overflow-clip bg-black p-10 border rounded-3xl h-max ">
                     <Image
                       src={testimonial.src}
                       alt={testimonial.name}
