@@ -154,9 +154,9 @@ export default function Footer() {
           >
             © 2023{" "}
             <Link href="/" className="hover:underline">
-              Lincify™
+            LINCIFY MEDIA PRIVATE LIMITED.
             </Link>
-            . All Rights Reserved.
+            All Rights Reserved.
           </motion.span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <motion.a
